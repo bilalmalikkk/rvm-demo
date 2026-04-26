@@ -72,9 +72,11 @@ export function ProductReferences() {
           {products.map((product, index) => {
             const imageSrc = productImageMap[product.title] || product.imageUrl;
             const hasError = imageErrors[product.title];
+            // Create a unique ID for the product card using the product ID
+            const productCardId = `product-${product.id}`;
             
             return (
-            <div key={index} className={styles.productCard}>
+            <div key={index} id={productCardId} className={styles.productCard}>
               <div className={styles.productImageWrapper}>
                 {!hasError && imageSrc ? (
                   <img 

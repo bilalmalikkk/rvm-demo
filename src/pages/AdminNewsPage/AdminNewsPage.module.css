@@ -48,7 +48,7 @@
 .loginCard button {
   width: 100%;
   padding: 12px;
-  background-color: #0066cc;
+  background-color: #2f6f68;
   color: white;
   border: none;
   border-radius: 6px;
@@ -59,7 +59,7 @@
 }
 
 .loginCard button:hover:not(:disabled) {
-  background-color: #0052a3;
+  background-color: #255a54;
 }
 
 .loginCard button:disabled {
@@ -116,7 +116,7 @@
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  background-color: #0066cc;
+  background-color: #2f6f68;
   color: white;
   border: none;
   border-radius: 6px;
@@ -127,7 +127,7 @@
 }
 
 .addButton:hover {
-  background-color: #0052a3;
+  background-color: #255a54;
 }
 
 .formCard {
@@ -187,7 +187,7 @@
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  background-color: #0066cc;
+  background-color: #2f6f68;
   color: white;
   border: none;
   border-radius: 6px;
@@ -198,7 +198,7 @@
 }
 
 .saveButton:hover:not(:disabled) {
-  background-color: #0052a3;
+  background-color: #255a54;
 }
 
 .saveButton:disabled {
@@ -343,13 +343,13 @@
 }
 
 .uploadArea:hover {
-  border-color: #0066cc;
+  border-color: #2f6f68;
 }
 
 .uploadButton {
   display: inline-block;
   padding: 12px 24px;
-  background-color: #0066cc;
+  background-color: #2f6f68;
   color: white;
   border-radius: 6px;
   font-size: 16px;
@@ -359,7 +359,7 @@
 }
 
 .uploadButton:hover {
-  background-color: #0052a3;
+  background-color: #255a54;
 }
 
 .uploadButton:disabled {
@@ -485,7 +485,7 @@
 }
 
 .richTextContent a {
-  color: #0066cc;
+  color: #2f6f68;
   text-decoration: underline;
 }
 

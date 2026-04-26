@@ -1,6 +1,6 @@
 .businessAreasSection {
-  background-color: #f8f9fa;
-  padding: 96px 24px;
+  background-color: #f2f4f2;
+  padding: clamp(64px, 8vw, 112px) clamp(16px, 3vw, 40px);
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -12,37 +12,38 @@
 }
 
 .businessAreasWrapper {
-  max-width: 1152px;
+  width: min(100%, 1200px);
   margin: 0 auto;
 }
 
 .businessAreasTitle {
   text-align: center;
-  font-size: 28px;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 64px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  color: #1f2a2a;
+  line-height: 1.2;
+  margin-bottom: clamp(34px, 5vw, 64px);
 }
 
 .businessAreasGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
+  gap: clamp(18px, 2.5vw, 28px);
 }
 
 .businessAreaItem {
   text-align: center;
-  transition: transform 0.3s ease;
   cursor: pointer;
+  border: 1px solid #dde2df;
+  background: #fbfcfb;
+  border-radius: 14px;
+  padding: 26px 18px 24px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .businessAreaItem:hover {
-  transform: translateY(-10px);
-}
-
-.businessAreaItem:hover .iconCircle {
-  transform: scale(1.1) rotate(5deg);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  border-color: #c9d3cf;
+  box-shadow: 0 10px 24px rgba(35, 54, 53, 0.08);
 }
 
 .iconCircle {
@@ -51,69 +52,56 @@
   justify-content: center;
   width: 96px;
   height: 96px;
-  background-color: white;
+  background-color: #ffffff;
   border-radius: 50%;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8e4;
   margin-bottom: 24px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
+.businessAreaItem:hover .iconCircle {
+  border-color: #cad5d1;
+  background-color: #f6f9f7;
+}
 
 .businessAreaTitle {
-  font-size: 20px;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 8px;
+  font-size: clamp(1.2rem, 1.8vw, 1.35rem);
+  font-weight: 500;
+  color: #1f2a2a;
+  margin-bottom: 9px;
+  line-height: 1.35;
 }
 
 .businessAreaSubtitle {
   font-size: 14px;
-  color: #64748b;
+  color: #5f6f6f;
   margin-bottom: 12px;
 }
 
 .businessAreaDescription {
-  font-size: 16px;
-  line-height: 1.75;
-  color: #334155;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #4d5b5b;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .businessAreasSection {
-    padding: 80px 40px;
-  }
-
   .businessAreasGrid {
-    gap: 40px;
+    gap: 20px;
   }
 }
 
 @media (max-width: 768px) {
-  .businessAreasSection {
-    padding: 60px 40px;
-  }
-
   .businessAreasGrid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .businessAreasTitle {
-    font-size: 26px;
-    margin-bottom: 48px;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 480px) {
-  .businessAreasSection {
-    padding: 40px 20px;
-  }
-
-  .businessAreasTitle {
-    font-size: 24px;
-    margin-bottom: 32px;
+  .businessAreasGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .businessAreaTitle {
@@ -125,8 +113,9 @@
   }
 
   .iconCircle {
-    width: 80px;
-    height: 80px;
+    width: 76px;
+    height: 76px;
+    margin-bottom: 18px;
   }
 }
 

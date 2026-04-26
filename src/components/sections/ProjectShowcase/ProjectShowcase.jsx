@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Heart, Car, Cpu, ArrowRight } from 'lucide-react';
 import { useLanguage } from '../../../context/LanguageContext';
 import { getTranslations } from '../../../constants/translations';
@@ -11,8 +12,9 @@ const iconMap = {
   Cpu,
 };
 
-export function ProjectShowcase({ setCurrentPage }) {
+export function ProjectShowcase() {
   const { language } = useLanguage();
+  const navigate = useNavigate();
   const t = getTranslations(language);
   const [ref, isVisible] = useScrollAnimation({ threshold: 0.2 });
 
@@ -20,10 +22,18 @@ export function ProjectShowcase({ setCurrentPage }) {
     // Set flag to scroll to product references section
     sessionStorage.setItem('scrollToProductReferences', 'true');
     // Navigate to projects page
-    const projectPageName = language === 'no' ? 'prosjekt' : 'project';
-    if (setCurrentPage) {
-      setCurrentPage(projectPageName);
-    }
+    navigate('/project');
+  };
+
+  const handleLearnMoreClick = (productId, e) => {
+    e.preventDefault();
+    if (!productId) return;
+    
+    // Store product ID in sessionStorage
+    sessionStorage.setItem('scrollToProductId', productId);
+    
+    // Navigate to projects page
+    navigate('/project');
   };
 
   return (
@@ -46,7 +56,11 @@ export function ProjectShowcase({ setCurrentPage }) {
                 <p className={styles.projectDescription}>
                   {project.description}
                 </p>
-                <a href={project.link} className={styles.projectLink}>
+                <a 
+                  href={project.link} 
+                  className={styles.projectLink}
+                  onClick={(e) => handleLearnMoreClick(project.productId, e)}
+                >
                   {t.projectShowcase.learnMore} <ArrowRight size={18} className={styles.arrow} />
                 </a>
               </div>

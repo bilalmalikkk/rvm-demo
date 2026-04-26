@@ -4,4 +4,5 @@ export { WelfareTechnologyPage } from './WelfareTechnologyPage/WelfareTechnology
 export { AutomotivePage } from './AutomotivePage/AutomotivePage';
 export { PlasticMechanicsPage } from './PlasticMechanicsPage/PlasticMechanicsPage';
 export { CableAssemblyPage } from './CableAssemblyPage/CableAssemblyPage';
+export { AboutUsPage } from './AboutUsPage/AboutUsPage';
 

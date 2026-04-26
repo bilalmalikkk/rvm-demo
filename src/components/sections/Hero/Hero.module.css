@@ -1,222 +1,202 @@
 .heroSection {
   flex: 1;
-  background: linear-gradient(180deg, #0f1419 0%, #1a1f2e 50%, #0f1419 100%);
+  background: linear-gradient(180deg, #f7f6f4 0%, #f2f3f1 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 120px);
-  padding: 80px 40px;
+  min-height: clamp(540px, calc(100vh - 120px), 760px);
+  padding: clamp(72px, 10vw, 140px) clamp(16px, 3vw, 40px);
   position: relative;
-  overflow: hidden;
-}
-
-.heroSection::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
-              radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
-  animation: pulse 8s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 1;
-  }
+  border-bottom: 1px solid #dde2df;
 }
 
 .heroContent {
-  max-width: 1000px;
-  text-align: center;
-  color: white;
+  width: min(100%, 1200px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+  gap: clamp(24px, 5vw, 72px);
+  align-items: center;
+  color: #1f2a2a;
   position: relative;
   z-index: 1;
-  animation: fadeInUp 1s ease;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.heroTextBlock {
+  max-width: 70ch;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #567170;
 }
 
 .heroHeading {
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 24px;
-  color: white;
-  animation: fadeInUp 1s ease 0.2s backwards;
+  max-width: 20ch;
+  font-size: clamp(2.25rem, 5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: clamp(16px, 2.4vw, 28px);
+  color: #1f2a2a;
 }
 
 .heroSubheading {
-  font-size: 20px;
+  max-width: 66ch;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
   font-weight: 400;
-  line-height: 1.6;
-  margin-bottom: 48px;
-  color: rgba(255, 255, 255, 0.9);
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  animation: fadeInUp 1s ease 0.4s backwards;
+  line-height: 1.7;
+  color: #4d5b5b;
+  margin: 0;
 }
 
-.heroButtons {
+.heroActions {
+  margin-top: clamp(22px, 3vw, 34px);
   display: flex;
-  gap: 20px;
-  justify-content: center;
+  gap: 12px;
   flex-wrap: wrap;
-  animation: fadeInUp 1s ease 0.6s backwards;
 }
 
-.btnPrimary {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 16px 40px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+.primaryAction,
+.secondaryAction {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 20px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+.primaryAction {
+  background: #2f6f68;
+  color: #f8faf8;
+  border: 1px solid #2f6f68;
+}
+
+.primaryAction:hover {
+  background: #255a54;
+  border-color: #255a54;
+}
+
+.secondaryAction {
+  background: transparent;
+  color: #2a3838;
+  border: 1px solid #ccd5d1;
+}
+
+.secondaryAction:hover {
+  border-color: #aebcb7;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.heroVisual {
+  display: flex;
+  justify-content: center;
+}
+
+.visualPanel {
+  width: min(100%, 460px);
+  aspect-ratio: 4 / 5;
+  background: #eef1ef;
+  border: 1px solid #dbe2de;
+  border-radius: 18px;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 16px 34px rgba(35, 54, 53, 0.09);
 }
 
-.btnPrimary::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.2);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
-}
-
-.btnPrimary:hover::before {
-  width: 300px;
-  height: 300px;
-}
-
-.btnPrimary:hover {
-  background-color: #45a049;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-}
-
-.btnPrimary:active {
-  transform: translateY(-1px);
-}
-
-.btnSecondary {
-  background-color: transparent;
-  color: white;
-  border: 2px solid white;
-  padding: 14px 40px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.btnSecondary::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
+.visualImage {
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  transition: left 0.3s ease;
+  object-fit: cover;
+  object-position: center;
+  display: block;
 }
 
-.btnSecondary:hover::before {
-  left: 0;
-}
-
-.btnSecondary:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
-}
-
-.btnSecondary:active {
-  transform: translateY(-1px);
+.visualOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(247, 246, 244, 0.03) 0%,
+    rgba(31, 42, 42, 0.08) 100%
+  );
+  pointer-events: none;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
   .heroSection {
-    padding: 60px 40px;
+    min-height: 560px;
   }
 
   .heroHeading {
-    font-size: 42px;
+    max-width: 24ch;
   }
 }
 
 @media (max-width: 768px) {
   .heroSection {
-    padding: 60px 40px;
-    min-height: calc(100vh - 100px);
+    min-height: 500px;
+    padding-top: clamp(64px, 12vw, 96px);
+    padding-bottom: clamp(64px, 12vw, 96px);
+  }
+
+  .heroContent {
+    grid-template-columns: 1fr;
   }
 
   .heroHeading {
-    font-size: 32px;
+    max-width: 100%;
   }
 
   .heroSubheading {
-    font-size: 18px;
+    max-width: 100%;
   }
 
-  .heroButtons {
-    flex-direction: column;
-    align-items: center;
+  .heroVisual {
+    order: 2;
   }
 
-  .btnPrimary,
-  .btnSecondary {
-    width: 100%;
-    max-width: 300px;
+  .heroTextBlock {
+    order: 1;
+  }
+
+  .visualPanel {
+    width: min(100%, 440px);
+    aspect-ratio: 16 / 11;
   }
 }
 
 @media (max-width: 480px) {
   .heroSection {
-    padding: 40px 20px;
-    min-height: calc(100vh - 80px);
+    min-height: 420px;
   }
 
   .heroHeading {
-    font-size: 28px;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 
   .heroSubheading {
-    font-size: 16px;
-    margin-bottom: 32px;
+    line-height: 1.65;
   }
 
-  .heroContent {
-    padding: 0 10px;
+  .heroActions {
+    width: 100%;
+  }
+
+  .primaryAction,
+  .secondaryAction {
+    flex: 1 1 auto;
+    min-width: 140px;
   }
 }
 

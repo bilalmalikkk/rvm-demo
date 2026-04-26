@@ -17,10 +17,6 @@ export function ProjectHero() {
         <p className={styles.heroDescription}>
           {t.projectHero.description}
         </p>
-        <div className={styles.heroButtons}>
-          <button className={styles.btnPrimary}>{t.projectHero.button1}</button>
-          <button className={styles.btnSecondary}>{t.projectHero.button2}</button>
-        </div>
       </div>
     </section>
   );

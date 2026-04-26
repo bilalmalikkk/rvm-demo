@@ -32,9 +32,19 @@ export function AutomotivePartners() {
           <h3 className={styles.partnersSubheading}>
             {t.automotivePartners.subheading}
           </h3>
-          <p className={styles.partnersDescription}>
-            {t.automotivePartners.description}
-          </p>
+          <div className={styles.partnersDescription}>
+            {Array.isArray(t.automotivePartners.description) ? (
+              t.automotivePartners.description.map((paragraph, paragraphIndex) => (
+                <p key={paragraphIndex}>
+                  {paragraph.map((part, partIndex) => 
+                    part.bold ? <strong key={partIndex}>{part.text}</strong> : part.text
+                  )}
+                </p>
+              ))
+            ) : (
+              <p>{t.automotivePartners.description}</p>
+            )}
+          </div>
           <a 
             href="#contact" 
             onClick={handleContactClick}

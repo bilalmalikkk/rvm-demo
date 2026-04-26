@@ -39,12 +39,12 @@
 }
 
 .technologyDetailCategory:hover .categoryDetailHeader {
-  border-bottom-color: #0066cc;
+  border-bottom-color: #2f6f68;
 }
 
 .technologyDetailCategory:hover .categoryDetailIcon {
   transform: scale(1.2) rotate(-5deg);
-  color: #667eea;
+  color: #2f6f68;
 }
 
 .categoryDetailHeader {
@@ -58,7 +58,7 @@
 }
 
 .categoryDetailIcon {
-  color: #0066cc;
+  color: #2f6f68;
   flex-shrink: 0;
   transition: all 0.3s ease;
 }
@@ -89,7 +89,7 @@
 
 .technologyDetailItem::before {
   content: '•';
-  color: #0066cc;
+  color: #2f6f68;
   font-weight: bold;
   position: absolute;
   left: 0;

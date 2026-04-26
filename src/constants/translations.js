@@ -6,19 +6,16 @@ export const translations = {
     header: {
       topMenu: [
         { label: 'Om oss', href: '#about' },
-        { label: 'Våre produkter', href: '#products' },
-        { label: 'Book demo', href: '#demo' },
         { label: 'Kontakt oss', href: '#contact' },
         { label: 'Personvern erklæring', href: '#privacy' },
       ],
       bottomMenu: [
         { label: 'Hjem', href: '#hero' },
-        { label: 'prosjekt', href: '#about' },
+        { label: 'Prosjekt', href: '#about' },
         { label: 'Velferds teknologi', externalUrl: 'https://nordicmedtek.no' },
-        { label: 'automotive', href: '#business' },
+        { label: 'Automotive', href: '#business' },
         { label: 'Plast & Mekanikk', href: '#plastic' },
         { label: 'Kabel konfeksjon', href: '#cable' },
-        { label: 'Resurser', href: '#resources' },
       ],
       languageToggle: 'ENGLISH',
     },
@@ -112,6 +109,8 @@ export const translations = {
             'Silicon Labs',
             'Espressif',
             'Arduino-baserte løsninger',
+            'Infineon Semiconductor',
+            'Renesas',
           ],
         },
         {
@@ -348,8 +347,35 @@ export const translations = {
     // About
     about: {
       title: 'OM NORDIC RVM GROUP',
-      text: 'Vi er en talentfull gruppe entreprenører, ingeniører og partnere som støtter helse- og medisinsk virksomhet med banebrytende ideer og produkter. Vi tilbyr smarte løsninger og produkter for bedrifter i alle størrelser og er stolte av vår unike, dedikerte service. Hos Nordic Medtek tror vi at riktig forståelse og teknologisk forsprang kan lede oss og våre partnere mot en vellykket fremtid.',
+      paragraphs: [
+        'Nordic RVM Group er en innovativ teknologipartner som kombinerer kompetanse og erfaring for å levere komplette løsninger – fra idé til ferdig produkt.',
+        'Vi spesialiserer oss på utvikling og produksjon innen industriell elektronikk, velferdsteknologi, Automotive, plast- og mekanisk design, samt kabelkonfeksjon. I tillegg har vi vår egen prototyp- og småskala produksjon av elektronikk, noe som gir oss fleksibilitet og hastighet i utviklingsprosessen.',
+        'Hos Nordic RVM handler alt om å skape verdi gjennom teknologi, innovasjon og kvalitet. Vi hjelper selskaper i alle størrelser med å realisere banebrytende ideer og produkter – og vi gjør det med engasjement, presisjon og dedikasjon.',
+        'Innovasjon – Presisjon - Resultater.',
+      ],
       cardTitle: 'Nordic Medtek team',
+    },
+    // About Us Page
+    aboutUs: {
+      title: 'HVEM ER VI',
+      backButton: 'Tilbake',
+      paragraphs: [
+        'Nordicrvm AS ble etablert i 2018 som et norsk hovedkontor for Kopera Software LTD i India, etablert i 2002.',
+        'Med et mangfoldig portefølje av teknologier og et talentfullt team av førsteklasses ingeniører har vi samlet verktøyene for å utvikle hele spekteret av moderne produkter for embedded, helse, bil, lyd og IoT-produkter.',
+      ],
+      warmWelcome: {
+        title: 'VARM VELKOMST',
+        subtitle: 'Bli kjent med oss',
+        mikal: {
+          name: 'MIKAL DREGGEVIK',
+          role: 'Gründer & designleder',
+          biography: [
+            'Mikal har vært entreprenør siden ungdomsårene, og startet sitt første selskap allerede i 1987, bare 24 år gammel.',
+            'Han er gründeren av Westcontrol AS, en av Norges største produsenter av elektronikk.',
+            'Mikal er kjent som en innovativ person med en lang og imponerende liste over produkter designet og utviklet av ham. Han er profesjonell innen flere disipliner, inkludert produktdesign, 3D-design av mekanikk, plastdeler, elektronikk, pneumatikk og hydraulikk. Han bruker sine ferdigheter til å designe nye produkter og assistere partnere.',
+          ],
+        },
+      },
     },
     // Business Areas
     businessAreas: {
@@ -455,21 +481,24 @@ export const translations = {
           category: 'VELFERDSTEKNOLOGI',
           title: 'Cam-X2 Falldeteksjon',
           description: 'Kamerasystem med dobbel falldeteksjon for eldreomsorg. Radar og AI-teknologi sikrer maksimal trygghet uten å krenke personvernet.',
-          link: '#'
+          link: '#',
+          productId: '11508'
         },
         {
           icon: 'Car',
           category: 'AUTOMOTIVE',
           title: 'RV-Control 500',
           description: 'Komplett styresystem for bobil og campingvogn med kontroll av belysning, oppvarming, vann og batteri. Intuitiv touchskjerm med app-styring.',
-          link: '#'
+          link: '#',
+          productId: '14782'
         },
         {
           icon: 'Cpu',
           category: 'R&D & PRODUKSJON',
           title: 'SmartHub IoT Gateway',
           description: 'Kraftig IoT-gateway for smarte hjem. Støtter WiFi, Zigbee og Z-Wave med integrert cloud-kommunikasjon og remote management.',
-          link: '#'
+          link: '#',
+          productId: '11511'
         }
       ]
     },
@@ -486,9 +515,9 @@ export const translations = {
       orText: 'Eller',
       bookMeeting: 'Book et møte',
       contactInfo: 'Kontaktinformasjon',
-      addressText: 'Nordic RVM Group AS\nTeknologiveien 1\n1234 Oslo, Norge',
+      addressText: 'Nordic RVM Group AS\nBergtunveien 1',
       emailText: 'kontakt@nordicrvm.no',
-      phoneText: '+47 123 45 678',
+      phoneText: '+47 51303066',
       note: 'Vi svarer vanligvis innen 24 timer på hverdager. For hastesaker, vennligst ring oss direkte.',
       submitSuccess: 'Takk for din henvendelse! Vi tar kontakt snart.',
     },
@@ -496,6 +525,8 @@ export const translations = {
     footer: {
       tagline: 'Innovasjon for helse og mobilitet – fra idé til ferdig produkt',
       contact: 'Kontakt',
+      email: 'post@nordicrvm.no',
+      phone: '+47 51303066',
       services: 'Tjenester',
       service1: 'Elektronikkutvikling',
       service2: 'Prototyping',
@@ -836,7 +867,16 @@ export const translations = {
     automotivePartners: {
       heading: 'Geografisk eksklusivitet',
       subheading: 'B TO B BUSINESS',
-      description: 'Når vi inngår partnerskap, tilbyr vi geografisk eksklusivitet til ditt hovedmarked. Dette betyr at vi ikke vil selge våre produkter til dine direkte konkurrenter. Vi er klar over at dette begrenser antall partnere vi kan ha, men vi tror dette er den beste løsningen for å bygge sterke og langsiktige samarbeidsforhold.',
+      description: [
+        [
+          { text: 'Når vi inngår partnerskap, tilbyr vi geografisk eksklusivitet til ditt hovedmarked. Dette betyr at vi ikke vil selge våre produkter til dine direkte konkurrenter. Vi er klar over at dette begrenser antall partnere vi kan ha, men vi tror dette er den beste løsningen for å bygge sterke og langsiktige samarbeidsforhold.', bold: false }
+        ],
+        [
+          { text: 'Som et eksempel på vår forpliktelse til eksklusivitet, er vi stolt av å være ', bold: false },
+          { text: 'eksklusiv leverandør til SoliferPolar AB', bold: true },
+          { text: ' sine campingvogner, og vi vil derfor ikke levere til noen som SoliferPolar anser som direkte konkurrenter. Dette viser hvordan vi verdsetter B2B-samarbeid og investerer i relasjoner som gir trygghet, vekst og gjensidig suksess. Hos oss får du ikke bare produkter og tjenester – du får en strategisk partner som beskytter dine markedsposisjoner.', bold: false }
+        ]
+      ],
       contactLink: 'Kontakt oss',
       imageAlt: 'Business partnership handshake',
     },
@@ -955,19 +995,16 @@ export const translations = {
     header: {
       topMenu: [
         { label: 'About us', href: '#about' },
-        { label: 'Our products', href: '#products' },
-        { label: 'Book demo', href: '#demo' },
         { label: 'Contact us', href: '#contact' },
         { label: 'Privacy policy', href: '#privacy' },
       ],
       bottomMenu: [
         { label: 'Home', href: '#hero' },
-        { label: 'project', href: '#about' },
+        { label: 'Project', href: '#about' },
         { label: 'Welfare technology', externalUrl: 'https://nordicmedtek.no' },
         { label: 'Automotive', href: '#business' },
         { label: 'Plastic & Mechanics', href: '#plastic' },
         { label: 'Cable assembly', href: '#cable' },
-        { label: 'Resources', href: '#resources' },
       ],
       languageToggle: 'NORSK',
     },
@@ -1061,6 +1098,8 @@ export const translations = {
             'Silicon Labs',
             'Espressif',
             'Arduino-based solutions',
+            'Infineon Semiconductor',
+            'Renesas',
           ],
         },
         {
@@ -1297,8 +1336,35 @@ export const translations = {
     // About
     about: {
       title: 'ABOUT NORDIC RVM GROUP',
-      text: 'We are a talented group of entrepreneurs, engineers and partners who support health and medical businesses with groundbreaking ideas and products. We offer smart solutions and products for companies of all sizes and are proud of our unique, dedicated service. At Nordic Medtek, we believe that proper understanding and technological advantage can lead us and our partners towards a successful future.',
+      paragraphs: [
+        'Nordic RVM Group is an innovative technology partner that combines expertise and experience to deliver complete solutions – from idea to finished product.',
+        'We specialize in development and production in industrial electronics, welfare technology, Automotive, plastic and mechanical design, as well as cable assembly. In addition, we have our own prototype and small-scale production of electronics, which gives us flexibility and speed in the development process.',
+        'At Nordic RVM, everything is about creating value through technology, innovation and quality. We help companies of all sizes realize groundbreaking ideas and products – and we do it with commitment, precision and dedication.',
+        'Innovation – Precision - Results.',
+      ],
       cardTitle: 'Nordic Medtek team',
+    },
+    // About Us Page
+    aboutUs: {
+      title: 'WHO WE ARE',
+      backButton: 'Back',
+      paragraphs: [
+        'Nordicrvm AS was established in 2018 as a norwegian head office for Kopera Software LTD in India, established in 2002.',
+        'With a diversified portfolio of technologies and a talented team of first class engineers, we have brought together the tools to develop the full gamut of modern products for embedded, healthcare, automotive, audio and IoT products.',
+      ],
+      warmWelcome: {
+        title: 'WARM WELCOME',
+        subtitle: 'Get to Know Us',
+        mikal: {
+          name: 'MIKAL DREGGEVIK',
+          role: 'Founder & chief of design',
+          biography: [
+            'Mikal has been an entrepreneur since a young age, starting his first company in 1987 at 24 years old.',
+            'He is the founder of Westcontrol AS, one of the biggest manufacturers of electronics in Norway.',
+            'Mikal is known as an innovative person, with a long and impressive list of products designed and created by him. He is professional in various disciplines, including product design, 3D design of mechanics, plastic parts, electronics, pneumatics, and hydraulics. He uses his skills to design new products and assist partners.',
+          ],
+        },
+      },
     },
     // Business Areas
     businessAreas: {
@@ -1404,21 +1470,24 @@ export const translations = {
           category: 'WELFARE TECHNOLOGY',
           title: 'Cam-X2 Fall Detection',
           description: 'Camera system with dual fall detection for elderly care. Radar and AI technology ensure maximum safety without violating privacy.',
-          link: '#'
+          link: '#',
+          productId: '11508'
         },
         {
           icon: 'Car',
           category: 'AUTOMOTIVE',
           title: 'RV-Control 500',
           description: 'Complete control system for motorhomes and caravans with control of lighting, heating, water and battery. Intuitive touchscreen with app control.',
-          link: '#'
+          link: '#',
+          productId: '14782'
         },
         {
           icon: 'Cpu',
           category: 'R&D & PRODUCTION',
           title: 'SmartHub IoT Gateway',
           description: 'Powerful IoT gateway for smart homes. Supports WiFi, Zigbee and Z-Wave with integrated cloud communication and remote management.',
-          link: '#'
+          link: '#',
+          productId: '11511'
         }
       ]
     },
@@ -1435,9 +1504,9 @@ export const translations = {
       orText: 'Or',
       bookMeeting: 'Book a meeting',
       contactInfo: 'Contact information',
-      addressText: 'Nordic RVM Group AS\nTeknologiveien 1\n1234 Oslo, Norway',
+      addressText: 'Nordic RVM Group AS\nBergtunveien 1',
       emailText: 'contact@nordicrvm.no',
-      phoneText: '+47 123 45 678',
+      phoneText: '+47 51303066',
       note: 'We usually respond within 24 hours on weekdays. For urgent matters, please call us directly.',
       submitSuccess: 'Thank you for your inquiry! We will be in touch soon.',
     },
@@ -1445,6 +1514,8 @@ export const translations = {
     footer: {
       tagline: 'Innovation for health and mobility – from idea to finished product',
       contact: 'Contact',
+      email: 'post@nordicrvm.no',
+      phone: '+47 51303066',
       services: 'Services',
       service1: 'Electronics development',
       service2: 'Prototyping',
@@ -1785,7 +1856,16 @@ export const translations = {
     automotivePartners: {
       heading: 'Geographical exclusivity',
       subheading: 'B TO B BUSINESS',
-      description: 'When we enter into partnerships, we offer geographical exclusivity to your main market. This means that we will not sell our products to your direct competitors. We are aware that this limits the number of partners we can have, but we believe this is the best solution for building strong and long-term collaborative relationships.',
+      description: [
+        [
+          { text: 'When we enter into partnerships, we offer geographical exclusivity to your main market. This means that we will not sell our products to your direct competitors. We are aware that this limits the number of partners we can have, but we believe this is the best solution for building strong and long-term collaborative relationships.', bold: false }
+        ],
+        [
+          { text: 'As an example of our commitment to exclusivity, we are proud to be the ', bold: false },
+          { text: 'exclusive supplier to SoliferPolar AB', bold: true },
+          { text: ' for their caravans, and we will therefore not supply anyone that SoliferPolar considers as direct competitors. This', bold: false }
+        ]
+      ],
       contactLink: 'Contact us',
       imageAlt: 'Business partnership handshake',
     },

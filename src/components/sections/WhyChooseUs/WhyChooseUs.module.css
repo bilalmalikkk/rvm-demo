@@ -1,6 +1,6 @@
 .whyChooseSection {
-  background-color: #fafafa;
-  padding: 80px 80px;
+  background-color: #f7f6f4;
+  padding: clamp(64px, 8vw, 112px) clamp(16px, 3vw, 40px);
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -13,61 +13,61 @@
 
 .whyChooseHeader {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: clamp(34px, 5vw, 60px);
 }
 
 .whyChooseTitle {
-  font-size: 32px;
-  font-weight: 700;
-  color: #333;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  color: #1f2a2a;
+  line-height: 1.2;
   margin-bottom: 16px;
 }
 
 .whyChooseSubtitle {
-  font-size: 18px;
-  color: #666;
-  line-height: 1.6;
+  max-width: 68ch;
+  margin: 0 auto;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  color: #4d5b5b;
+  line-height: 1.7;
 }
 
 .whyChooseGrid {
-  max-width: 1400px;
+  width: min(100%, 1200px);
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: clamp(16px, 2.4vw, 24px);
 }
 
 .featureCard {
-  background-color: white;
-  border-radius: 12px;
-  padding: 32px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease;
-  border: 1px solid #f0f0f0;
+  background-color: #fbfcfb;
+  border-radius: 14px;
+  padding: clamp(20px, 2.6vw, 30px);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid #dde2df;
   cursor: pointer;
 }
 
 .featureCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-  border-color: #0066cc;
-}
-
-.featureCard:hover .featureIconBox {
-  transform: scale(1.1) rotate(-5deg);
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 10px 24px rgba(35, 54, 53, 0.08);
+  border-color: #c9d3cf;
 }
 
 .featureIconBox {
   width: 64px;
   height: 64px;
-  background-color: #0066cc;
+  background-color: #2f6f68;
   border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 24px;
-  transition: all 0.3s ease;
+  transition: background-color 0.2s ease;
+}
+
+.featureCard:hover .featureIconBox {
+  background-color: #255a54;
 }
 
 .featureIcon {
@@ -78,58 +78,34 @@
 }
 
 .featureTitle {
-  font-size: 20px;
-  font-weight: 700;
-  color: #333;
+  font-size: clamp(1.15rem, 1.9vw, 1.35rem);
+  font-weight: 500;
+  color: #1f2a2a;
   margin-bottom: 12px;
+  line-height: 1.35;
 }
 
 .featureDescription {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #666;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #4d5b5b;
 }
 
 /* Responsive */
 @media (max-width: 1024px) {
-  .whyChooseSection {
-    padding: 60px 40px;
-  }
-
   .whyChooseGrid {
     gap: 24px;
   }
 }
 
 @media (max-width: 768px) {
-  .whyChooseSection {
-    padding: 60px 40px;
-  }
-
   .whyChooseGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
-
-  .whyChooseTitle {
-    font-size: 28px;
-  }
-
-  .whyChooseHeader {
-    margin-bottom: 48px;
-  }
 }
 
 @media (max-width: 480px) {
-  .whyChooseSection {
-    padding: 40px 20px;
-  }
-
-  .whyChooseTitle {
-    font-size: 24px;
-    margin-bottom: 12px;
-  }
-
   .whyChooseSubtitle {
     font-size: 15px;
   }

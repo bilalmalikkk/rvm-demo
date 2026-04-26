@@ -12,26 +12,95 @@ import { ScrollToTop } from '../../common/ScrollToTop/ScrollToTop';
 
 export function ProjectPage() {
   useEffect(() => {
-    // Check if we need to scroll to product references section
-    const shouldScroll = sessionStorage.getItem('scrollToProductReferences');
-    if (shouldScroll === 'true') {
-      // Clear the flag
+    const productId = sessionStorage.getItem('scrollToProductId');
+    const scrollToProductReferences = sessionStorage.getItem('scrollToProductReferences');
+    
+    if (productId) {
+      // Clear it immediately so it only runs once
+      sessionStorage.removeItem('scrollToProductId');
+      
+      // Function to scroll to the product
+      const scrollToProduct = () => {
+        const element = document.getElementById(`product-${productId}`);
+        if (element) {
+          // Use scrollIntoView for more reliable scrolling
+          element.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start',
+            inline: 'nearest'
+          });
+          
+          // Adjust for header offset after scroll
+          setTimeout(() => {
+            const headerOffset = 120;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'auto' // Instant adjustment
+            });
+          }, 100);
+          
+          return true;
+        }
+        return false;
+      };
+
+      // Use requestAnimationFrame for better timing
+      const attemptScroll = () => {
+        requestAnimationFrame(() => {
+          if (!scrollToProduct()) {
+            // Retry after a short delay
+            setTimeout(attemptScroll, 100);
+          }
+        });
+      };
+
+      // Start attempting after page has had time to render
+      setTimeout(attemptScroll, 300);
+    } else if (scrollToProductReferences === 'true') {
+      // Clear it immediately so it only runs once
       sessionStorage.removeItem('scrollToProductReferences');
       
-      // Wait for the page to render, then scroll
-      setTimeout(() => {
+      // Function to scroll to the product references section
+      const scrollToSection = () => {
         const element = document.getElementById('product-references');
         if (element) {
-          const headerOffset = 100; // Adjust for sticky header
-          const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
+          // Use scrollIntoView for more reliable scrolling
+          element.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start',
+            inline: 'nearest'
           });
+          
+          // Adjust for header offset after scroll
+          setTimeout(() => {
+            const headerOffset = 120;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'auto' // Instant adjustment
+            });
+          }, 100);
+          
+          return true;
         }
-      }, 100);
+        return false;
+      };
+
+      // Use requestAnimationFrame for better timing
+      const attemptScroll = () => {
+        requestAnimationFrame(() => {
+          if (!scrollToSection()) {
+            // Retry after a short delay
+            setTimeout(attemptScroll, 100);
+          }
+        });
+      };
+
+      // Start attempting after page has had time to render
+      setTimeout(attemptScroll, 300);
     }
   }, []);
 

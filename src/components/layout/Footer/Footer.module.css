@@ -1,16 +1,17 @@
 .footer {
-  background-color: #0f2537;
-  color: white;
-  padding: 60px 80px 32px;
+  background-color: #2a3838;
+  color: rgba(255, 255, 255, 0.92);
+  padding: clamp(48px, 6vw, 72px) clamp(16px, 3vw, 40px) 28px;
+  border-top: 1px solid #3d4f4f;
 }
 
 .footerContent {
-  max-width: 1400px;
+  width: min(100%, 1200px);
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
-  margin-bottom: 32px;
+  gap: clamp(28px, 4vw, 48px);
+  margin-bottom: 28px;
 }
 
 .footerColumn {
@@ -19,16 +20,17 @@
 }
 
 .footerHeading {
-  font-size: 18px;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
 }
 
 .footerDescription {
-  font-size: 15px;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .footerContactItem {
@@ -36,15 +38,15 @@
   align-items: center;
   gap: 12px;
   margin-bottom: 12px;
-  font-size: 15px;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.94rem;
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .footerIcon {
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-  color: rgba(255, 255, 255, 0.8);
+  color: #7ca6a0;
 }
 
 .footerServices {
@@ -53,66 +55,56 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .footerServices li {
-  font-size: 15px;
+  font-size: 0.94rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .footerDivider {
   height: 1px;
-  background-color: rgba(255, 255, 255, 0.2);
-  margin: 32px 0;
-  max-width: 1400px;
+  background-color: rgba(255, 255, 255, 0.12);
+  margin: 28px 0;
+  width: min(100%, 1200px);
   margin-left: auto;
   margin-right: auto;
 }
 
 .footerCopyright {
   text-align: center;
-  max-width: 1400px;
+  width: min(100%, 1200px);
   margin: 0 auto;
 }
 
 .footerCopyright p {
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.55);
   margin: 0;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
-  .footer {
-    padding: 60px 40px 32px;
-  }
-
   .footerContent {
     grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
+    gap: 28px;
   }
 }
 
 @media (max-width: 480px) {
-  .footer {
-    padding: 40px 20px 24px;
-  }
-
   .footerContent {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 28px;
   }
 
   .footerHeading {
-    font-size: 16px;
+    font-size: 0.95rem;
   }
 
   .footerDescription,
   .footerContactItem,
   .footerServices li {
-    font-size: 14px;
+    font-size: 0.9rem;
   }
 }
-

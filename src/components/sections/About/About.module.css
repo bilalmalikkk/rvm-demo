@@ -1,6 +1,6 @@
 .aboutSection {
-  background-color: white;
-  padding: 80px 80px;
+  background-color: #f7f6f4;
+  padding: clamp(64px, 8vw, 112px) clamp(16px, 3vw, 40px);
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -12,11 +12,11 @@
 }
 
 .aboutContainer {
-  max-width: 1400px;
+  width: min(100%, 1200px);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.92fr);
+  gap: clamp(28px, 5vw, 72px);
   align-items: start;
 }
 
@@ -26,35 +26,42 @@
 }
 
 .aboutHeading {
-  font-size: 24px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #000;
-  margin-bottom: 24px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #1f2a2a;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  max-width: 18ch;
 }
 
 .aboutText {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #333;
+  max-width: 66ch;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.7;
+  color: #4d5b5b;
   text-align: left;
+  margin-bottom: 0.9em;
+}
+
+.aboutText:last-child {
+  margin-bottom: 0;
 }
 
 .aboutCard {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  padding: 24px;
+  background-color: #fbfcfb;
+  border-radius: 14px;
+  border: 1px solid #dde2df;
+  padding: clamp(18px, 2vw, 24px);
   min-height: 400px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .aboutCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  border-color: #c7d2cd;
+  box-shadow: 0 10px 30px rgba(35, 54, 53, 0.08);
 }
 
 .cardHeader {
@@ -65,9 +72,11 @@
 }
 
 .cardTitle {
-  font-size: 14px;
-  color: #666;
+  font-size: 0.78rem;
+  color: #5f6f6f;
   font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .cardPlaceholder {
@@ -77,67 +86,62 @@
   min-height: 300px;
 }
 
+.cardImageContainer {
+  flex: 1;
+  border-radius: 10px;
+  min-height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
 /* Responsive */
 @media (max-width: 1024px) {
-  .aboutSection {
-    padding: 60px 40px;
-  }
-
   .aboutContainer {
-    gap: 40px;
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 768px) {
-  .aboutSection {
-    padding: 60px 40px;
-  }
-
   .aboutContainer {
-    grid-template-columns: 1fr;
     gap: 40px;
   }
 
   .aboutHeading {
-    font-size: 22px;
-  }
-
-  .aboutText {
-    font-size: 15px;
+    max-width: 100%;
   }
 
   .aboutCard {
     min-height: 350px;
-    padding: 20px;
   }
 }
 
 @media (max-width: 480px) {
-  .aboutSection {
-    padding: 40px 20px;
-  }
-
   .aboutContainer {
-    grid-template-columns: 1fr;
     gap: 32px;
   }
 
   .aboutHeading {
-    font-size: 20px;
     margin-bottom: 20px;
-  }
-
-  .aboutText {
-    font-size: 15px;
-    line-height: 1.6;
   }
 
   .aboutCard {
     min-height: 300px;
-    padding: 16px;
   }
 
   .cardPlaceholder {
+    min-height: 200px;
+  }
+
+  .cardImageContainer {
     min-height: 200px;
   }
 }

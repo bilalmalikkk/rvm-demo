@@ -1,55 +1,120 @@
 import React, { useState } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useLanguage } from '../../../context/LanguageContext';
 import { getTranslations } from '../../../constants/translations';
+import { pageToRoute } from '../../../utils/routing';
 import styles from './Header.module.css';
 
-export function Header({ currentPage, setCurrentPage }) {
+export function Header() {
   const { language, toggleLanguage } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const t = getTranslations(language);
 
+  // Helper function to get route from page name/label
+  const getRouteFromPage = (pageName) => {
+    return pageToRoute[pageName] || '/home';
+  };
+
+  const pathname = location.pathname;
+
+  // Helper function to check if current route matches page
+  const isActiveRoute = (pageName) => {
+    const route = getRouteFromPage(pageName);
+    if (route === '/home') {
+      return pathname === '/home' || pathname === '/';
+    }
+    return pathname === route;
+  };
+
   const handleLanguageChange = () => {
+    const currentRoute = location.pathname;
     toggleLanguage();
     
-    // Update current page to match new language
-    const pageMap = language === 'no' 
-      ? {
-          'Hjem': 'Home',
-          'prosjekt': 'project',
-          'automotive': 'Automotive',
-          'Plast & Mekanikk': 'Plastic & Mechanics',
-          'Kabel konfeksjon': 'Cable assembly',
-          'Resurser': 'Resources'
-        }
-      : {
-          'Home': 'Hjem',
-          'project': 'prosjekt',
-          'Automotive': 'automotive',
-          'Plastic & Mechanics': 'Plast & Mekanikk',
-          'Cable assembly': 'Kabel konfeksjon',
-          'Resources': 'Resurser'
-        };
-    setCurrentPage(pageMap[currentPage] || (language === 'no' ? 'Home' : 'Hjem'));
+    // Stay on the same route when language changes
+    // The route stays the same, just the language context changes
+    navigate(currentRoute, { replace: true });
   };
 
   const topMenuItems = t.header.topMenu;
   const bottomMenuItems = t.header.bottomMenu;
 
+  const handleContactClick = (e) => {
+    e.preventDefault();
+    
+    const isOnHomeRoute = pathname === '/home' || pathname === '/';
+    
+    if (isOnHomeRoute) {
+      // Already on home page - scroll to contact immediately
+      setTimeout(() => {
+        const contactElement = document.getElementById('contact');
+        if (contactElement) {
+          contactElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Adjust for fixed header
+          setTimeout(() => {
+            window.scrollBy(0, -120);
+          }, 100);
+        }
+      }, 100);
+    } else {
+      // Use sessionStorage to trigger scroll after navigation
+      sessionStorage.setItem('scrollToContact', 'true');
+      navigate('/home');
+    }
+  };
+
+  const handlePrivacyClick = (e) => {
+    e.preventDefault();
+    navigate('/privacy');
+  };
+
   return (
     <header className={styles.header}>
       <nav className={styles.secondaryNav}>
         <div className={styles.secondaryNavLinks}>
-          {topMenuItems.map((item, index) => (
-            item.page ? (
-              <button
-                key={index}
-                onClick={() => setCurrentPage(item.page)}
-                className={`${styles.secondaryNavLink} ${currentPage === item.page ? styles.active : ''}`}
-              >
-                {item.label}
-              </button>
-            ) : (
+          {topMenuItems.map((item, index) => {
+            // Special handling for contact link
+            if (item.href === '#contact') {
+              return (
+                <a
+                  key={index}
+                  href={item.href}
+                  className={styles.secondaryNavLink}
+                  onClick={handleContactClick}
+                >
+                  {item.label}
+                </a>
+              );
+            }
+            // Special handling for privacy link
+            if (item.href === '#privacy') {
+              return (
+                <a
+                  key={index}
+                  href={item.href}
+                  className={`${styles.secondaryNavLink} ${pathname === '/privacy' ? styles.secondaryNavLinkActive : ''}`}
+                  onClick={handlePrivacyClick}
+                >
+                  {item.label}
+                </a>
+              );
+            }
+            // Special handling for about link - navigate to About Us page
+            if (item.href === '#about') {
+              return (
+                <Link
+                  key={index}
+                  to="/about"
+                  className={`${styles.secondaryNavLink} ${pathname === '/about' ? styles.secondaryNavLinkActive : ''}`}
+                >
+                  {item.label}
+                </Link>
+              );
+            }
+            // Other anchor links (like #products, etc.)
+            return (
               <a
                 key={index}
                 href={item.href}
@@ -57,8 +122,8 @@ export function Header({ currentPage, setCurrentPage }) {
               >
                 {item.label}
               </a>
-            )
-          ))}
+            );
+          })}
           <button
             onClick={handleLanguageChange}
             className={styles.languageSelector}
@@ -69,8 +134,8 @@ export function Header({ currentPage, setCurrentPage }) {
       </nav>
       <nav className={styles.primaryNav}>
         <div className={styles.primaryNavContainer}>
-          <button
-            onClick={() => setCurrentPage(language === 'no' ? 'Hjem' : 'Home')}
+          <Link
+            to="/home"
             className={styles.logoContainer}
             aria-label="Home"
           >
@@ -79,29 +144,34 @@ export function Header({ currentPage, setCurrentPage }) {
               alt="Nordic RVM Logo" 
               className={styles.logo}
             />
-          </button>
+          </Link>
           <div className={styles.primaryNavLinks}>
-            {bottomMenuItems.map((item, index) => (
-              item.externalUrl ? (
-                <a
+            {bottomMenuItems.map((item, index) => {
+              if (item.externalUrl) {
+                return (
+                  <a
+                    key={index}
+                    href={item.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.label}
+                  </a>
+                );
+              }
+              const route = getRouteFromPage(item.label);
+              const isActive = isActiveRoute(item.label);
+              return (
+                <Link
                   key={index}
-                  href={item.externalUrl}
+                  to={route}
+                  className={isActive ? styles.active : ''}
+                  onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
-                </a>
-              ) : (
-              <button
-                key={index}
-                onClick={() => {
-                  setCurrentPage(item.label);
-                  setMobileMenuOpen(false);
-                }}
-                className={currentPage === item.label ? styles.active : ''}
-              >
-                {item.label}
-              </button>
-              )
-            ))}
+                </Link>
+              );
+            })}
           </div>
           <button
             className={styles.mobileMenuButton}
@@ -113,44 +183,84 @@ export function Header({ currentPage, setCurrentPage }) {
         </div>
         {mobileMenuOpen && (
           <div className={styles.mobileMenuDropdown}>
-            {bottomMenuItems.map((item, index) => (
-              item.externalUrl ? (
-                <a
+            {bottomMenuItems.map((item, index) => {
+              if (item.externalUrl) {
+                return (
+                  <a
+                    key={`bottom-${index}`}
+                    href={item.externalUrl}
+                    className={styles.mobileMenuItem}
+                    onClick={() => setMobileMenuOpen(false)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {item.label}
+                  </a>
+                );
+              }
+              const route = getRouteFromPage(item.label);
+              const isActive = isActiveRoute(item.label);
+              return (
+                <Link
                   key={`bottom-${index}`}
-                  href={item.externalUrl}
-                  className={styles.mobileMenuItem}
+                  to={route}
+                  className={`${styles.mobileMenuItem} ${isActive ? styles.active : ''}`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
-                </a>
-              ) : (
-              <button
-                key={`bottom-${index}`}
-                onClick={() => {
-                  setCurrentPage(item.label);
-                  setMobileMenuOpen(false);
-                }}
-                className={`${styles.mobileMenuItem} ${currentPage === item.label ? styles.active : ''}`}
-              >
-                {item.label}
-              </button>
-              )
-            ))}
+                </Link>
+              );
+            })}
             <div className={styles.mobileMenuDivider}></div>
             <div className={styles.mobileSubmenu}>
-              {topMenuItems.map((item, index) => (
-                item.page ? (
-                  <button
-                    key={`top-${index}`}
-                    onClick={() => {
-                      setCurrentPage(item.page);
-                      setMobileMenuOpen(false);
-                    }}
-                    className={`${styles.mobileSubmenuItem} ${currentPage === item.page ? styles.active : ''}`}
-                  >
-                    {item.label}
-                  </button>
-                ) : (
+              {topMenuItems.map((item, index) => {
+                // Special handling for contact link
+                if (item.href === '#contact') {
+                  return (
+                    <a
+                      key={`top-${index}`}
+                      href={item.href}
+                      className={styles.mobileSubmenuItem}
+                      onClick={(e) => {
+                        handleContactClick(e);
+                        setMobileMenuOpen(false);
+                      }}
+                    >
+                      {item.label}
+                    </a>
+                  );
+                }
+                // Special handling for privacy link
+                if (item.href === '#privacy') {
+                  return (
+                    <a
+                      key={`top-${index}`}
+                      href={item.href}
+                      className={`${styles.mobileSubmenuItem} ${pathname === '/privacy' ? styles.secondaryNavLinkActive : ''}`}
+                      onClick={(e) => {
+                        handlePrivacyClick(e);
+                        setMobileMenuOpen(false);
+                      }}
+                    >
+                      {item.label}
+                    </a>
+                  );
+                }
+                // Special handling for about link - navigate to About Us page
+                if (item.href === '#about') {
+                  return (
+                    <Link
+                      key={`top-${index}`}
+                      to="/about"
+                      className={`${styles.mobileSubmenuItem} ${pathname === '/about' ? styles.secondaryNavLinkActive : ''}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                }
+                // Other anchor links
+                return (
                   <a
                     key={`top-${index}`}
                     href={item.href}
@@ -159,8 +269,8 @@ export function Header({ currentPage, setCurrentPage }) {
                   >
                     {item.label}
                   </a>
-                )
-              ))}
+                );
+              })}
               <button
                 onClick={() => {
                   handleLanguageChange();
@@ -177,4 +287,3 @@ export function Header({ currentPage, setCurrentPage }) {
     </header>
   );
 }
-

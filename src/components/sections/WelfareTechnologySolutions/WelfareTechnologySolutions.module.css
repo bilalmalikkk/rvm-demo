@@ -83,7 +83,7 @@
   align-items: center;
   gap: 8px;
   background-color: transparent;
-  color: #0066cc;
+  color: #2f6f68;
   border: none;
   padding: 12px 0;
   font-size: 18px;
@@ -101,7 +101,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background-color: #0066cc;
+  background-color: #2f6f68;
   transition: width 0.3s ease;
 }
 
@@ -110,7 +110,7 @@
 }
 
 .seeMoreButton:hover {
-  color: #0052a3;
+  color: #255a54;
 }
 
 .seeMoreButton:hover .arrowIcon {

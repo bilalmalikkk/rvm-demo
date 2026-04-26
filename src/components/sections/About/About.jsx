@@ -2,6 +2,7 @@ import React from 'react';
 import { useLanguage } from '../../../context/LanguageContext';
 import { getTranslations } from '../../../constants/translations';
 import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
+import handAndPcbImage from '../../../assets/Hand_and_PCB.png';
 import styles from './About.module.css';
 
 export function About() {
@@ -14,16 +15,25 @@ export function About() {
       <div className={styles.aboutContainer}>
         <div className={styles.aboutContent}>
           <h2 className={styles.aboutHeading}>{t.about.title}</h2>
-          <p className={styles.aboutText}>
-            {t.about.text}
-          </p>
+          {t.about.paragraphs.map((paragraph, index) => {
+            const isLast = index === t.about.paragraphs.length - 1;
+            return (
+              <p key={index} className={styles.aboutText}>
+                {isLast ? <strong>{paragraph}</strong> : paragraph}
+              </p>
+            );
+          })}
         </div>
         <div className={styles.aboutCard}>
           <div className={styles.cardHeader}>
             <span className={styles.cardTitle}>{t.about.cardTitle}</span>
           </div>
-          <div className={styles.cardPlaceholder}>
-            {/* Placeholder for image */}
+          <div className={styles.cardImageContainer}>
+            <img 
+              src={handAndPcbImage} 
+              alt="Nordic Medtek team" 
+              className={styles.cardImage}
+            />
           </div>
         </div>
       </div>

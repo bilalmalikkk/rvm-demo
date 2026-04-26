@@ -69,10 +69,18 @@
   margin: 0;
 }
 
+.partnersDescription p {
+  margin: 0 0 16px 0;
+}
+
+.partnersDescription p:last-child {
+  margin-bottom: 0;
+}
+
 .contactLink {
   font-size: 16px;
   font-weight: 600;
-  color: #0066cc;
+  color: #2f6f68;
   text-decoration: underline;
   cursor: pointer;
   transition: color 0.3s;
@@ -81,7 +89,7 @@
 }
 
 .contactLink:hover {
-  color: #0052a3;
+  color: #255a54;
 }
 
 /* Responsive */

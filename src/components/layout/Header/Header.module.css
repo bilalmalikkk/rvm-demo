@@ -1,34 +1,39 @@
 .header {
-  background-color: white;
+  background-color: #f8f8f8;
   width: 100%;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: none;
+  border-bottom: 1px solid #dde2df;
 }
 
 .secondaryNav {
-  border-bottom: 1px solid #e0e0e0;
-  padding: 8px 0;
+  border-bottom: 1px solid #e6ebe8;
+  padding: 10px 0;
+  background-color: #f8f8f8;
 }
 
 .secondaryNavLinks {
-  padding: 0 80px;
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  padding: 0 clamp(16px, 3vw, 40px);
   display: flex;
-  gap: 32px;
+  gap: 24px;
   align-items: center;
   justify-content: flex-end;
   font-size: 13px;
+  line-height: 1.4;
 }
 
 .secondaryNavLinks a {
-  color: #333;
+  color: #4d5b5b;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
 .secondaryNavLinks a:hover {
-  color: #0066cc;
+  color: #2f6f68;
 }
 
 .languageSelector {
@@ -37,28 +42,31 @@
   user-select: none;
   background: none;
   border: none;
-  color: #333;
+  color: #4d5b5b;
   font-size: 13px;
   font-family: inherit;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
+  padding: 0;
 }
 
 .languageSelector:hover {
-  color: #0066cc;
+  color: #2f6f68;
 }
 
 .primaryNav {
-  padding: 16px 0;
+  padding: 14px 0;
   position: relative;
+  background-color: #f8f8f8;
 }
 
 .primaryNavContainer {
-  position: relative;
+  width: min(100%, 1200px);
+  margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 0 80px;
-  gap: 40px;
+  justify-content: space-between;
+  padding: 0 clamp(16px, 3vw, 40px);
+  gap: clamp(20px, 3vw, 42px);
 }
 
 .logoContainer {
@@ -68,33 +76,29 @@
   padding: 0;
   display: flex;
   align-items: center;
-  transition: opacity 0.2s, transform 0.2s;
+  transition: opacity 0.2s ease;
   margin-right: auto;
 }
 
 .logoContainer:hover {
-  opacity: 0.8;
-  transform: scale(1.05);
-}
-
-.logoContainer:active {
-  transform: scale(1);
+  opacity: 0.88;
 }
 
 .logo {
-  height: 50px;
+  height: 46px;
   width: auto;
   object-fit: contain;
 }
 
 .primaryNavLinks {
   display: flex;
-  gap: 32px;
+  gap: clamp(18px, 2.2vw, 32px);
   align-items: center;
-  justify-content: center;
-  font-size: 16px;
+  justify-content: flex-end;
+  font-size: 15px;
   font-weight: 500;
-  flex: 1;
+  letter-spacing: 0.01em;
+  flex: 0 1 auto;
 }
 
 .mobileMenuButton {
@@ -102,9 +106,9 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #333;
+  color: #2a3838;
   padding: 8px;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
   align-items: center;
   justify-content: center;
   min-width: 44px;
@@ -117,15 +121,15 @@
 }
 
 .mobileMenuItem {
-  padding: 12px 40px;
+  padding: 14px 24px;
   text-align: left;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e6ebe8;
   background: none;
   border-left: none;
   border-right: none;
   border-top: none;
-  color: #333;
-  font-size: 16px;
+  color: #2a3838;
+  font-size: 15px;
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
@@ -136,35 +140,35 @@
 }
 
 .mobileMenuItem:hover {
-  color: #0066cc;
+  color: #2f6f68;
 }
 
 .mobileMenuItem.active {
-  color: #0066cc;
+  color: #2f6f68;
 }
 
 .mobileMenuDivider {
   height: 1px;
-  background-color: #e0e0e0;
+  background-color: #dde2df;
   margin: 8px 0;
 }
 
 .mobileSubmenu {
   display: flex;
   flex-direction: column;
-  background-color: #f8f9fa;
+  background-color: #f2f4f2;
   padding: 8px 0;
 }
 
 .mobileSubmenuItem {
-  padding: 8px 40px;
+  padding: 9px 24px;
   text-align: left;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e6ebe8;
   background: none;
   border-left: none;
   border-right: none;
   border-top: none;
-  color: #666;
+  color: #4d5b5b;
   font-size: 13px;
   font-weight: 400;
   font-family: inherit;
@@ -176,11 +180,11 @@
 }
 
 .mobileSubmenuItem:hover {
-  color: #0066cc;
+  color: #2f6f68;
 }
 
 .mobileSubmenuItem.active {
-  color: #0066cc;
+  color: #2f6f68;
   font-weight: 500;
 }
 
@@ -189,32 +193,32 @@
 }
 
 .mobileMenuButton:hover {
-  color: #0066cc;
+  color: #2f6f68;
 }
 
 .primaryNavLinks a,
 .primaryNavLinks button {
-  color: #333;
+  color: #2a3838;
   text-decoration: none;
-  padding-bottom: 4px;
-  transition: color 0.2s;
+  padding-bottom: 6px;
+  transition: color 0.2s ease;
   position: relative;
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   font-family: inherit;
 }
 
 .primaryNavLinks a:hover,
 .primaryNavLinks button:hover {
-  color: #0066cc;
+  color: #2f6f68;
 }
 
 .primaryNavLinks a.active,
 .primaryNavLinks button.active {
-  color: #0066cc;
+  color: #2f6f68;
 }
 
 .primaryNavLinks a.active::after,
@@ -224,22 +228,24 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 2px;
-  background-color: #0066cc;
+  height: 3px;
+  background-color: #2f6f68;
+  border-radius: 2px;
 }
 
 .secondaryNavLink {
-  color: #333;
+  color: #4d5b5b;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
 .secondaryNavLink:hover {
-  color: #0066cc;
+  color: #2f6f68;
 }
 
-.secondaryNavLink.active {
-  color: #0066cc;
+.secondaryNavLink.active,
+.secondaryNavLinkActive {
+  color: #2f6f68;
   font-weight: 600;
 }
 
@@ -250,7 +256,7 @@
   }
 
   .primaryNavContainer {
-    padding: 0 40px;
+    padding: 0 24px;
     justify-content: space-between;
   }
 
@@ -276,20 +282,21 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #f8f8f8;
+    border-top: 1px solid #e6ebe8;
+    box-shadow: none;
     padding: 0;
     margin-top: 0;
   }
 
   .mobileMenuItem:last-of-type {
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e6ebe8;
   }
 }
 
 @media (max-width: 480px) {
   .primaryNavContainer {
-    padding: 0 20px;
+    padding: 0 16px;
   }
 
   .logo {
@@ -297,11 +304,11 @@
   }
 
   .mobileMenuItem {
-    padding: 12px 20px;
+    padding: 14px 16px;
   }
 
   .mobileSubmenuItem {
-    padding: 8px 20px;
+    padding: 9px 16px;
   }
 }
 

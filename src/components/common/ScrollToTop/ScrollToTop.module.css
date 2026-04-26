@@ -4,7 +4,7 @@
   right: 30px;
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #2f6f68 0%, #255a54 100%);
   border: none;
   border-radius: 50%;
   color: white;
@@ -29,7 +29,7 @@
 .scrollToTop:hover {
   transform: translateY(-5px) scale(1.1);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  background: linear-gradient(135deg, #255a54 0%, #2f6f68 100%);
 }
 
 .scrollToTop:active {

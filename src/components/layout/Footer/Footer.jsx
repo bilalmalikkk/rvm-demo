@@ -21,11 +21,11 @@ export function Footer() {
           <h3 className={styles.footerHeading}>{t.footer.contact}</h3>
           <div className={styles.footerContactItem}>
             <Mail size={18} className={styles.footerIcon} />
-            <span>post@nordicrvm.no</span>
+            <span>{t.footer.email}</span>
           </div>
           <div className={styles.footerContactItem}>
             <Phone size={18} className={styles.footerIcon} />
-            <span>+47 XXX XX XXX</span>
+            <span>{t.footer.phone}</span>
           </div>
         </div>
         <div className={styles.footerColumn}>
