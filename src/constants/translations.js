@@ -263,6 +263,8 @@ export const translations = {
       title: 'Produktreferanser',
       subtitle: 'Utvalgte produkter vi har utviklet og produsert for våre kunder',
       buttonText: 'Se Datablad',
+      readMore: 'Les mer',
+      readLess: 'Vis mindre',
       products: [
         {
           title: 'Cam-X2',
@@ -1252,6 +1254,8 @@ export const translations = {
       title: 'Product References',
       subtitle: 'Selected products we have developed and produced for our customers',
       buttonText: 'See Datasheet',
+      readMore: 'Read more',
+      readLess: 'Show less',
       products: [
         {
           title: 'Cam-X2',

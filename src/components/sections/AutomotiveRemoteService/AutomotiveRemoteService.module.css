@@ -1,63 +1,59 @@
 .remoteServiceSection {
-  background-color: white;
-  padding: 80px 40px;
+  background-color: #f7f6f4;
+  padding: clamp(64px, 8vw, 112px) clamp(16px, 3vw, 40px);
 }
 
 .remoteServiceContainer {
-  max-width: 1400px;
+  width: min(100%, 1200px);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.92fr);
+  gap: clamp(28px, 5vw, 72px);
   align-items: center;
 }
 
 .remoteServiceText {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 12px;
 }
 
 .remoteServiceHeading {
-  font-size: 36px;
-  font-weight: 700;
-  color: #1e293b;
-  text-transform: uppercase;
-  letter-spacing: 1px;
   margin: 0;
-  margin-bottom: 8px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: #1f2a2a;
 }
 
 .remoteServiceSubheading {
-  font-size: 20px;
+  margin: 0 0 6px;
+  font-size: clamp(1.05rem, 1.5vw, 1.2rem);
   font-weight: 500;
-  color: #64748b;
-  margin: 0;
-  margin-top: -8px;
-  margin-bottom: 8px;
+  color: #567170;
 }
 
 .remoteServiceParagraph {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #334155;
   margin: 0;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.7;
+  color: #4d5b5b;
 }
 
 .remoteServiceList {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 6px 0 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .remoteServiceListItem {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #334155;
-  padding-left: 24px;
+  font-size: clamp(0.95rem, 1.2vw, 1rem);
+  line-height: 1.65;
+  color: #4d5b5b;
+  padding-left: 18px;
   position: relative;
 }
 
@@ -65,115 +61,45 @@
   content: '•';
   position: absolute;
   left: 0;
+  top: 0;
   color: #2f6f68;
-  font-weight: bold;
-  font-size: 20px;
+  font-weight: 600;
 }
 
 .remoteServiceImage {
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .image {
   width: 100%;
-  max-width: 700px;
-  height: auto;
-  border-radius: 12px;
-  object-fit: contain;
+  height: min(500px, 52vw);
+  max-height: 520px;
+  border-radius: 14px;
+  border: 1px solid #dde2df;
+  box-shadow: 0 10px 30px rgba(35, 54, 53, 0.08);
+  object-fit: cover;
+  display: block;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
   .remoteServiceContainer {
-    gap: 40px;
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 768px) {
-  .remoteServiceSection {
-    padding: 60px 40px;
-  }
-
-  .remoteServiceContainer {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
   .remoteServiceImage {
     order: -1;
   }
 
-  .remoteServiceHeading {
-    font-size: 28px;
-  }
-
-  .remoteServiceSubheading {
-    font-size: 18px;
-  }
-
-  .remoteServiceParagraph,
-  .remoteServiceListItem {
-    font-size: 15px;
+  .image {
+    height: 380px;
+    max-height: none;
   }
 }
 
 @media (max-width: 480px) {
-  .remoteServiceSection {
-    padding: 50px 20px;
-  }
-
-  .remoteServiceContainer {
-    gap: 32px;
-  }
-
-  .remoteServiceHeading {
-    font-size: 24px;
-    line-height: 1.3;
-  }
-
-  .remoteServiceSubheading {
-    font-size: 16px;
-  }
-
-  .remoteServiceParagraph,
-  .remoteServiceListItem {
-    font-size: 14px;
-    line-height: 1.7;
-  }
-}
-
-@media (max-width: 375px) {
-  .remoteServiceSection {
-    padding: 40px 16px;
-  }
-
-  .remoteServiceHeading {
-    font-size: 22px;
-  }
-
-  .remoteServiceSubheading {
-    font-size: 15px;
-  }
-
-  .remoteServiceParagraph,
-  .remoteServiceListItem {
-    font-size: 13px;
-  }
-}
-
-@media (max-width: 320px) {
-  .remoteServiceSection {
-    padding: 35px 12px;
-  }
-
-  .remoteServiceHeading {
-    font-size: 20px;
-  }
-
-  .remoteServiceSubheading {
-    font-size: 14px;
+  .image {
+    height: 300px;
   }
 }

@@ -2,57 +2,63 @@
   min-height: 100vh;
 }
 
+/* —— Hero —— */
 .heroSection {
-  background-color: #ffffff;
-  min-height: calc(100vh - 120px);
-  padding: 100px 80px 80px;
   position: relative;
+  background: linear-gradient(180deg, #f7f6f4 0%, #f2f3f1 100%);
+  border-bottom: 1px solid #dde2df;
+  min-height: calc(100vh - 120px);
+  padding: clamp(88px, 12vw, 120px) clamp(16px, 3vw, 40px) clamp(64px, 8vw, 96px);
   display: flex;
   align-items: center;
 }
 
 .backButton {
   position: absolute;
-  top: 40px;
-  left: 40px;
-  display: flex;
+  top: clamp(16px, 3vw, 28px);
+  left: clamp(16px, 3vw, 28px);
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: transparent;
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  color: #1a1f2e;
-  padding: 12px 20px;
-  border-radius: 8px;
+  background: #fbfcfb;
+  border: 1px solid #dde2df;
+  color: #2a3838;
+  padding: 10px 18px;
+  border-radius: 999px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 0.95rem;
   font-weight: 500;
-  transition: all 0.3s ease;
+  font-family: inherit;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
   z-index: 10;
 }
 
 .backButton:hover {
-  background: rgba(0, 0, 0, 0.05);
-  border-color: rgba(0, 0, 0, 0.3);
-  transform: translateX(-4px);
+  background: #eef1ef;
+  border-color: #c7d2cd;
+  color: #1f2a2a;
+}
+
+.backButton:focus-visible {
+  outline: 2px solid #2f6f68;
+  outline-offset: 2px;
 }
 
 .backButton:active {
-  transform: translateX(-2px);
+  transform: translateX(-1px);
 }
 
 .heroContainer {
-  max-width: 1400px;
+  width: min(100%, 1200px);
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  grid-template-columns: minmax(280px, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(28px, 5vw, 72px);
   align-items: center;
-  width: 100%;
 }
 
 .heroImage {
   width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,282 +66,169 @@
 
 .image {
   width: 100%;
-  height: auto;
-  object-fit: contain;
-  border-radius: 8px;
+  height: min(480px, 52vw);
+  max-height: 560px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid #dde2df;
+  box-shadow: 0 10px 30px rgba(35, 54, 53, 0.08);
+  display: block;
 }
 
 .heroContent {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: clamp(14px, 2vw, 22px);
 }
 
 .heroHeading {
-  font-size: 42px;
-  font-weight: 700;
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
   line-height: 1.2;
-  color: #1a1f2e;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+  color: #1f2a2a;
 }
 
 .heroParagraph {
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.8;
-  color: #333333;
   margin: 0;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.7;
+  color: #4d5b5b;
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .heroSection {
-    padding: 80px 60px 60px;
-  }
-
-  .heroContainer {
-    gap: 60px;
-  }
-
-  .heroHeading {
-    font-size: 36px;
-  }
-
-  .heroParagraph {
-    font-size: 17px;
-  }
-}
-
-@media (max-width: 768px) {
-  .heroSection {
-    padding: 80px 40px 60px;
-    min-height: auto;
-  }
-
-  .backButton {
-    top: 20px;
-    left: 20px;
-    padding: 10px 16px;
-    font-size: 14px;
-  }
-
-  .heroContainer {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .heroHeading {
-    font-size: 32px;
-  }
-
-  .heroParagraph {
-    font-size: 16px;
-    line-height: 1.7;
-  }
-}
-
-@media (max-width: 480px) {
-  .heroSection {
-    padding: 70px 20px 40px;
-  }
-
-  .backButton {
-    top: 15px;
-    left: 15px;
-    padding: 8px 12px;
-    font-size: 13px;
-  }
-
-  .backButton span {
-    display: none;
-  }
-
-  .heroContainer {
-    gap: 32px;
-  }
-
-  .heroHeading {
-    font-size: 28px;
-  }
-
-  .heroParagraph {
-    font-size: 15px;
-    line-height: 1.6;
-  }
-}
-
-/* Warm Welcome Section */
+/* —— Warm welcome —— */
 .warmWelcomeSection {
-  background-color: #f5f5f5;
-  padding: 80px 40px;
+  background-color: #f2f4f2;
+  padding: clamp(64px, 8vw, 112px) clamp(16px, 3vw, 40px);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .warmWelcomeContainer {
-  max-width: 1400px;
+  width: min(100%, 1200px);
   margin: 0 auto;
-  width: 100%;
 }
 
 .warmWelcomeTitle {
-  font-size: 42px;
-  font-weight: 700;
-  color: #1a1f2e;
+  margin: 0 0 12px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: #1f2a2a;
   text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 16px;
 }
 
 .warmWelcomeSubtitle {
-  font-size: 20px;
-  font-weight: 400;
-  color: #4a5568;
+  margin: 0 auto clamp(40px, 6vw, 64px);
+  max-width: 48ch;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.7;
+  color: #4d5b5b;
   text-align: center;
-  margin-bottom: 64px;
 }
 
 .profileCard {
-  background-color: #ffffff;
-  border-radius: 12px;
-  padding: 48px;
+  background-color: #fbfcfb;
+  border: 1px solid #dde2df;
+  border-radius: 14px;
+  padding: clamp(24px, 3vw, 40px);
   display: grid;
-  grid-template-columns: 460px 1fr;
-  gap: 40px;
+  grid-template-columns: minmax(260px, 400px) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 40px);
   align-items: start;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  max-width: 1400px;
-  margin: 0 auto;
-  width: 100%;
+  box-shadow: 0 8px 24px rgba(35, 54, 53, 0.06);
 }
 
 .profileImage {
   width: 100%;
   display: flex;
   align-items: flex-start;
-  justify-content: flex-start;
-  margin: 0;
+  justify-content: center;
 }
 
 .profileImg {
-  width: 460px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 400px;
   height: auto;
   aspect-ratio: 460 / 720;
   object-fit: cover;
-  border-radius: 8px;
-  margin: 0;
+  border-radius: 12px;
+  border: 1px solid #dde2df;
+  display: block;
 }
 
 .profileContent {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   text-align: left;
-  margin-top: 0;
-  padding-top: 0;
   align-self: center;
 }
 
-
 .profileName {
-  font-size: 28px;
-  font-weight: 700;
-  color: #1a1f2e;
-  text-transform: uppercase;
-  letter-spacing: 0;
-  line-height: 1.375em;
   margin: 0;
+  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.25;
+  color: #1f2a2a;
 }
 
 .profileRole {
-  font-size: 20px;
-  font-weight: 400;
-  color: #4a5568;
-  line-height: 1.67em;
   margin: 0;
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.6;
+  color: #567170;
 }
 
 .profileBiography {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-top: 8px;
-  text-align: left;
+  gap: 14px;
+  margin-top: 6px;
 }
 
 .biographyParagraph {
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.75em;
-  color: #333333;
   margin: 0;
+  font-size: clamp(1rem, 1.2vw, 1.05rem);
+  line-height: 1.7;
+  color: #4d5b5b;
 }
 
-/* Responsive for Warm Welcome Section */
 @media (max-width: 1024px) {
-  .warmWelcomeSection {
-    padding: 60px 40px;
+  .heroContainer {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 
-  .warmWelcomeTitle {
-    font-size: 36px;
+  .heroImage {
+    order: -1;
   }
 
-  .warmWelcomeSubtitle {
-    font-size: 18px;
-    margin-bottom: 48px;
+  .image {
+    height: 360px;
+    max-height: none;
   }
 
   .profileCard {
-    grid-template-columns: minmax(300px, 380px) 1fr;
-    gap: 32px;
-    padding: 40px;
-  }
-
-  .profileImg {
-    width: 100%;
-    max-width: 380px;
-    height: auto;
-    aspect-ratio: 460 / 720;
-  }
-
-  .profileName {
-    font-size: 24px;
-  }
-
-  .profileRole {
-    font-size: 17px;
-  }
-
-  .biographyParagraph {
-    font-size: 15px;
+    grid-template-columns: minmax(240px, 320px) 1fr;
   }
 }
 
 @media (max-width: 768px) {
-  .warmWelcomeSection {
-    padding: 60px 30px;
+  .heroSection {
+    min-height: auto;
   }
 
-  .warmWelcomeTitle {
-    font-size: 32px;
-  }
-
-  .warmWelcomeSubtitle {
-    font-size: 17px;
-    margin-bottom: 40px;
+  .image {
+    height: 320px;
   }
 
   .profileCard {
     grid-template-columns: 1fr;
     gap: 24px;
-    padding: 32px;
   }
 
   .profileImage {
@@ -343,148 +236,47 @@
   }
 
   .profileImg {
-    width: 100%;
     max-width: 100%;
-    height: auto;
-    aspect-ratio: 460 / 720;
-    margin: 0 auto;
-  }
-
-  .profileName {
-    font-size: 22px;
-  }
-
-  .profileRole {
-    font-size: 16px;
-  }
-
-  .biographyParagraph {
-    font-size: 15px;
-    line-height: 1.7;
   }
 }
 
 @media (max-width: 480px) {
-  .warmWelcomeSection {
-    padding: 40px 20px;
-  }
-
-  .warmWelcomeTitle {
-    font-size: 28px;
-  }
-
-  .warmWelcomeSubtitle {
-    font-size: 16px;
-    margin-bottom: 32px;
-  }
-
-  .profileCard {
-    padding: 24px;
-    gap: 20px;
-  }
-
-  .profileImage {
-    justify-content: center;
-  }
-
-  .profileImg {
-    max-width: 100%;
-    width: 100%;
-    margin: 0 auto;
-  }
-
-  .profileName {
-    font-size: 20px;
-  }
-
-  .profileRole {
-    font-size: 15px;
-  }
-
-  .biographyParagraph {
-    font-size: 14px;
-    line-height: 1.6;
-  }
-}
-
-/* Extra small screens - 25% resolution and below (around 360px) */
-@media (max-width: 360px) {
   .heroSection {
-    padding: 60px 16px 32px;
+    padding-top: clamp(72px, 18vw, 88px);
+  }
+
+  .image {
+    height: 260px;
+  }
+
+  .backButton span {
+    display: none;
   }
 
   .backButton {
-    top: 12px;
-    left: 12px;
-    padding: 6px 10px;
-    font-size: 12px;
-  }
-
-  .heroContainer {
-    gap: 24px;
-  }
-
-  .heroHeading {
-    font-size: 24px;
-    letter-spacing: 0.5px;
-  }
-
-  .heroParagraph {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .warmWelcomeSection {
-    padding: 32px 16px;
-  }
-
-  .warmWelcomeTitle {
-    font-size: 24px;
-    margin-bottom: 12px;
-    letter-spacing: 0.5px;
-  }
-
-  .warmWelcomeSubtitle {
-    font-size: 15px;
-    margin-bottom: 24px;
+    padding: 10px 12px;
   }
 
   .profileCard {
-    padding: 20px 16px;
-    gap: 16px;
-    border-radius: 8px;
+    padding: 22px 18px;
+  }
+}
+
+@media (max-width: 360px) {
+  .backButton {
+    top: 12px;
+    left: 12px;
   }
 
-  .profileImg {
-    max-width: 100%;
-    width: 100%;
-    height: auto;
-    aspect-ratio: 460 / 720;
-    border-radius: 6px;
+  .warmWelcomeTitle {
+    margin-bottom: 8px;
   }
 
-  .profileImage {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .profileName {
-    font-size: 18px;
-    line-height: 1.3;
-  }
-
-  .profileRole {
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .biographyParagraph {
-    font-size: 13px;
-    line-height: 1.5;
+  .warmWelcomeSubtitle {
+    margin-bottom: 28px;
   }
 
   .profileBiography {
     gap: 12px;
   }
 }
-

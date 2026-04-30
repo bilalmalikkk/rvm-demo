@@ -1,6 +1,6 @@
 .processFlowSection {
-  background-color: white;
-  padding: 120px 80px;
+  background-color: #ffffff;
+  padding: clamp(64px, 8vw, 112px) clamp(16px, 3vw, 40px);
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease, transform 0.8s ease;
@@ -12,22 +12,23 @@
 }
 
 .processFlowContainer {
-  max-width: 1400px;
+  width: min(100%, 1200px);
   margin: 0 auto;
 }
 
 .processFlowTitle {
   text-align: center;
-  font-size: 36px;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 80px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  color: #1f2a2a;
+  line-height: 1.2;
+  margin-bottom: clamp(40px, 6vw, 72px);
 }
 
 .processSteps {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
+  gap: clamp(24px, 3vw, 40px);
   align-items: start;
 }
 
@@ -36,139 +37,73 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
   cursor: pointer;
 }
 
 .processStep:hover {
-  transform: translateY(-10px);
+  transform: translateY(-4px);
 }
 
 .processStep:hover .stepNumber {
-  transform: scale(1.15) rotate(5deg);
-  background: linear-gradient(135deg, #2f6f68 0%, #255a54 100%);
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+  transform: scale(1.06);
+  background: #255a54;
+  box-shadow: 0 8px 20px rgba(35, 54, 53, 0.12);
 }
 
 .stepNumber {
-  width: 60px;
-  height: 60px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   background-color: #2f6f68;
-  color: white;
+  color: #f8faf8;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  font-weight: 700;
-  margin-bottom: 24px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 20px;
   flex-shrink: 0;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 102, 204, 0.3);
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(35, 54, 53, 0.1);
 }
 
 .stepTitle {
-  font-size: 20px;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 16px;
-  line-height: 1.3;
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  font-weight: 500;
+  color: #1f2a2a;
+  margin-bottom: 12px;
+  line-height: 1.35;
 }
 
 .stepDescription {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #334155;
+  font-size: clamp(0.95rem, 1.1vw, 1rem);
+  line-height: 1.65;
+  color: #4d5b5b;
   margin: 0;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
   .processSteps {
     grid-template-columns: repeat(2, 1fr);
-    gap: 60px 40px;
-  }
-
-  .processFlowTitle {
-    font-size: 32px;
-    margin-bottom: 60px;
+    gap: 40px 28px;
   }
 }
 
 @media (max-width: 768px) {
-  .processFlowSection {
-    padding: 80px 40px;
-  }
-
-  .processFlowTitle {
-    font-size: 28px;
-    margin-bottom: 50px;
-  }
-
   .processSteps {
     grid-template-columns: 1fr;
-    gap: 50px;
-  }
-
-  .stepNumber {
-    width: 56px;
-    height: 56px;
-    font-size: 22px;
-    margin-bottom: 20px;
-  }
-
-  .stepTitle {
-    font-size: 18px;
-    margin-bottom: 14px;
-  }
-
-  .stepDescription {
-    font-size: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .processFlowSection {
-    padding: 60px 20px;
-  }
-
-  .processFlowTitle {
-    font-size: 24px;
-    margin-bottom: 40px;
-  }
-
-  .processSteps {
     gap: 40px;
   }
 
   .stepNumber {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
-    margin-bottom: 16px;
-  }
-
-  .stepTitle {
-    font-size: 17px;
-    margin-bottom: 12px;
-  }
-
-  .stepDescription {
-    font-size: 14px;
-    line-height: 1.6;
+    width: 52px;
+    height: 52px;
+    font-size: 1.1rem;
   }
 }
 
-@media (max-width: 375px) {
-  .processFlowSection {
-    padding: 50px 16px;
-  }
-
-  .processFlowTitle {
-    font-size: 22px;
-    margin-bottom: 32px;
-  }
-
+@media (max-width: 480px) {
   .processSteps {
     gap: 32px;
   }
@@ -176,15 +111,6 @@
   .stepNumber {
     width: 48px;
     height: 48px;
-    font-size: 18px;
-  }
-
-  .stepTitle {
-    font-size: 16px;
-  }
-
-  .stepDescription {
-    font-size: 13px;
+    font-size: 1rem;
   }
 }
-

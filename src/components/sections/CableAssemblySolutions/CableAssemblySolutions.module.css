@@ -1,50 +1,47 @@
 .solutionsSection {
-  background-color: white;
-  padding: 80px 40px;
+  background-color: #ffffff;
+  padding: clamp(64px, 8vw, 112px) clamp(16px, 3vw, 40px);
 }
 
 .solutionsWrapper {
-  max-width: 1400px;
+  width: min(100%, 1200px);
   margin: 0 auto;
 }
 
 .solutionsHeader {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: clamp(32px, 5vw, 56px);
 }
 
 .solutionsTitle {
-  font-size: 36px;
-  font-weight: 700;
-  color: #1e293b;
-  margin: 0 0 16px 0;
-  text-transform: none;
-  letter-spacing: 0.5px;
+  margin: 0 0 14px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
+  line-height: 1.2;
+  color: #1f2a2a;
 }
 
 .solutionsSubtitle {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #64748b;
-  margin: 0;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  max-width: 68ch;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.7;
+  color: #4d5b5b;
 }
 
 .solutionsGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: clamp(20px, 3vw, 28px);
 }
 
 .solutionCard {
-  background-color: white;
-  border-radius: 12px;
-  padding: 32px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s, box-shadow 0.3s;
-  border: 1px solid #f0f0f0;
+  background-color: #fbfcfb;
+  border-radius: 14px;
+  padding: clamp(20px, 2.5vw, 28px);
+  border: 1px solid #dde2df;
+  box-shadow: 0 8px 24px rgba(35, 54, 53, 0.06);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -53,187 +50,57 @@
 
 .solutionCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  border-color: #c9d3cf;
+  box-shadow: 0 12px 32px rgba(35, 54, 53, 0.1);
 }
 
 .solutionIconBox {
-  width: 64px;
-  height: 64px;
-  background-color: #3b82f6;
-  border-radius: 8px;
+  width: 56px;
+  height: 56px;
+  background-color: #eef1ef;
+  border: 1px solid #dbe2de;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
 .solutionIcon {
   width: 24px;
   height: 24px;
-  color: white;
+  color: #2f6f68;
   display: block;
 }
 
 .solutionTitle {
-  font-size: 20px;
-  font-weight: 700;
-  color: #1e293b;
-  margin: 0 0 12px 0;
-  text-transform: none;
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  font-weight: 500;
+  color: #1f2a2a;
+  margin: 0 0 10px;
 }
 
 .solutionDescription {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #334155;
+  font-size: clamp(0.95rem, 1.15vw, 1rem);
+  line-height: 1.65;
+  color: #4d5b5b;
   margin: 0;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
   .solutionsGrid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
   }
 }
 
 @media (max-width: 768px) {
-  .solutionsSection {
-    padding: 60px 40px;
-  }
-
-  .solutionsHeader {
-    margin-bottom: 40px;
-  }
-
-  .solutionsTitle {
-    font-size: 28px;
-  }
-
-  .solutionsSubtitle {
-    font-size: 16px;
-  }
-
   .solutionsGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
-  .solutionCard {
-    padding: 24px;
-  }
-}
-
-@media (max-width: 480px) {
-  .solutionsSection {
-    padding: 50px 20px;
-  }
-
-  .solutionsHeader {
-    margin-bottom: 32px;
-  }
-
-  .solutionsTitle {
-    font-size: 24px;
-    line-height: 1.3;
-  }
-
-  .solutionsSubtitle {
-    font-size: 15px;
-    line-height: 1.6;
-  }
-
-  .solutionsGrid {
-    grid-template-columns: 1fr;
     gap: 20px;
   }
-
-  .solutionCard {
-    padding: 24px 20px;
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .solutionIconBox {
-    width: 56px;
-    height: 56px;
-    margin-bottom: 20px;
-  }
-
-  .solutionIcon {
-    width: 20px;
-    height: 20px;
-  }
-
-  .solutionTitle {
-    font-size: 18px;
-  }
-
-  .solutionDescription {
-    font-size: 15px;
-  }
 }
 
-@media (max-width: 375px) {
-  .solutionsSection {
-    padding: 40px 16px;
-  }
-
-  .solutionsTitle {
-    font-size: 22px;
-  }
-
-  .solutionsSubtitle {
-    font-size: 14px;
-  }
-
+@media (max-width: 640px) {
   .solutionsGrid {
-    gap: 18px;
-  }
-
-  .solutionCard {
-    padding: 20px 16px;
-  }
-
-  .solutionIconBox {
-    width: 52px;
-    height: 52px;
-    margin-bottom: 16px;
-  }
-
-  .solutionIcon {
-    width: 18px;
-    height: 18px;
-  }
-
-  .solutionTitle {
-    font-size: 17px;
-  }
-
-  .solutionDescription {
-    font-size: 14px;
+    grid-template-columns: 1fr;
   }
 }
-
-@media (max-width: 320px) {
-  .solutionsSection {
-    padding: 35px 12px;
-  }
-
-  .solutionsTitle {
-    font-size: 20px;
-  }
-
-  .solutionCard {
-    padding: 18px 14px;
-  }
-
-  .solutionTitle {
-    font-size: 16px;
-  }
-
-  .solutionDescription {
-    font-size: 13px;
-  }
-}
-

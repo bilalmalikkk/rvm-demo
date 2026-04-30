@@ -1,9 +1,9 @@
 .servicesSection {
-  background-color: white;
-  padding: 120px 80px;
+  background-color: #ffffff;
+  padding: clamp(64px, 8vw, 112px) clamp(16px, 3vw, 40px);
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .servicesSection.visible {
@@ -12,21 +12,19 @@
 }
 
 .servicesContainer {
-  max-width: 1400px;
+  width: min(100%, 1200px);
   margin: 0 auto;
 }
 
 .servicesHeader {
-  margin-bottom: 60px;
-  position: relative;
+  margin-bottom: clamp(32px, 5vw, 56px);
 }
 
 .headerContent {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
   flex-direction: column;
+  align-items: center;
+  gap: 0;
 }
 
 .headerText {
@@ -34,42 +32,27 @@
   width: 100%;
 }
 
-.headerButtons {
-  display: none;
-}
-
 .servicesTitle {
-  font-size: 42px;
-  font-weight: 700;
-  color: #000000;
-  margin-bottom: 16px;
+  margin: 0 0 14px;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
   line-height: 1.2;
+  color: #1f2a2a;
 }
 
 .servicesDescription {
-  font-size: 18px;
-  line-height: 1.6;
-  color: #000000;
-  max-width: 800px;
   margin: 0 auto;
-}
-
-.headerButtons {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  flex-shrink: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
+  max-width: 68ch;
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.7;
+  color: #4d5b5b;
 }
 
 .carouselWrapper {
   position: relative;
-  overflow: hidden;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: clamp(12px, 2vw, 20px);
 }
 
 .carouselContainer {
@@ -78,8 +61,9 @@
   scroll-behavior: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  padding: 20px 0;
+  padding: 12px 0;
   flex: 1;
+  min-width: 0;
 }
 
 .carouselContainer::-webkit-scrollbar {
@@ -89,30 +73,31 @@
 .servicesGrid {
   display: flex;
   gap: 24px;
-  padding: 0 20px;
+  padding: 0 4px;
   width: max-content;
 }
 
 .serviceCard {
   flex: 0 0 280px;
-  background-color: #f5f5f5;
-  border-radius: 8px;
+  background-color: #fbfcfb;
+  border: 1px solid #dde2df;
+  border-radius: 14px;
   overflow: hidden;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  position: relative;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  cursor: default;
 }
 
 .serviceCard:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  border-color: #c9d3cf;
+  box-shadow: 0 12px 32px rgba(35, 54, 53, 0.1);
 }
 
 .serviceImageWrapper {
   width: 100%;
   height: 220px;
   overflow: hidden;
-  background-color: #e5e5e5;
+  background-color: #eef1ef;
   position: relative;
 }
 
@@ -120,11 +105,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.25s ease;
 }
 
 .serviceCard:hover .serviceImage {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .serviceOverlay {
@@ -132,22 +117,26 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
-  padding: 20px 16px 16px;
+  background: linear-gradient(
+    to top,
+    rgba(31, 42, 42, 0.82) 0%,
+    rgba(31, 42, 42, 0.35) 55%,
+    transparent 100%
+  );
+  padding: 20px 16px 14px;
 }
 
 .serviceTitle {
-  font-size: 18px;
-  font-weight: 700;
-  color: white;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #f8faf8;
   margin: 0;
-  line-height: 1.3;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  line-height: 1.35;
 }
 
 .carouselButton {
-  background-color: #e5e5e5;
-  border: none;
+  background-color: #fbfcfb;
+  border: 1px solid #dde2df;
   border-radius: 50%;
   width: 44px;
   height: 44px;
@@ -155,64 +144,28 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
-  color: #333333;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  color: #2a3838;
   flex-shrink: 0;
-  z-index: 10;
-  position: relative;
+  z-index: 2;
 }
 
 .carouselButton:hover {
-  background-color: #d4d4d4;
-  transform: scale(1.1);
+  background-color: #eef1ef;
+  border-color: #c7d2cd;
+  color: #1f2a2a;
 }
 
 .carouselButton:active {
-  transform: scale(0.95);
+  transform: scale(0.96);
 }
 
-/* Responsive */
-@media (max-width: 1024px) {
-  .servicesSection {
-    padding: 80px 40px;
-  }
-
-  .servicesTitle {
-    font-size: 36px;
-  }
-
-  .headerContent {
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .headerButtons {
-    align-self: flex-end;
-  }
-
-  .carouselButton {
-    width: 40px;
-    height: 40px;
-  }
+.carouselButton:focus-visible {
+  outline: 2px solid #2f6f68;
+  outline-offset: 2px;
 }
 
 @media (max-width: 768px) {
-  .servicesSection {
-    padding: 60px 20px;
-  }
-
-  .servicesHeader {
-    margin-bottom: 40px;
-  }
-
-  .servicesTitle {
-    font-size: 32px;
-  }
-
-  .servicesDescription {
-    font-size: 16px;
-  }
-
   .serviceCard {
     flex: 0 0 260px;
   }
@@ -221,31 +174,13 @@
     height: 200px;
   }
 
-  .serviceTitle {
-    font-size: 16px;
-  }
-
   .carouselButton {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
   }
 }
 
 @media (max-width: 480px) {
-  .servicesSection {
-    padding: 50px 20px;
-  }
-
-  .servicesTitle {
-    font-size: 28px;
-    line-height: 1.3;
-  }
-
-  .servicesDescription {
-    font-size: 15px;
-    line-height: 1.6;
-  }
-
   .serviceCard {
     flex: 0 0 240px;
   }
@@ -255,8 +190,7 @@
   }
 
   .serviceTitle {
-    font-size: 15px;
-    padding: 16px 12px 12px;
+    font-size: 0.98rem;
   }
 
   .carouselButton {
@@ -266,18 +200,6 @@
 }
 
 @media (max-width: 375px) {
-  .servicesSection {
-    padding: 40px 16px;
-  }
-
-  .servicesTitle {
-    font-size: 24px;
-  }
-
-  .servicesDescription {
-    font-size: 14px;
-  }
-
   .serviceCard {
     flex: 0 0 220px;
   }
@@ -285,37 +207,4 @@
   .serviceImageWrapper {
     height: 160px;
   }
-
-  .serviceTitle {
-    font-size: 14px;
-    padding: 14px 10px 10px;
-  }
-
-  .carouselButton {
-    width: 32px;
-    height: 32px;
-  }
 }
-
-@media (max-width: 320px) {
-  .servicesSection {
-    padding: 35px 12px;
-  }
-
-  .servicesTitle {
-    font-size: 22px;
-  }
-
-  .serviceCard {
-    flex: 0 0 200px;
-  }
-
-  .serviceImageWrapper {
-    height: 150px;
-  }
-
-  .serviceTitle {
-    font-size: 13px;
-  }
-}
-

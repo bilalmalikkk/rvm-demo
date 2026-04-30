@@ -54,7 +54,7 @@ export function CableAssemblyProcess() {
                     >
                       <path
                         d="M9 18L15 12L9 6"
-                        stroke="#3b82f6"
+                        stroke="#2f6f68"
                         strokeWidth="2"
                         strokeLinecap="round"
                         strokeLinejoin="round"

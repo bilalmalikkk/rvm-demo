@@ -2,7 +2,6 @@ import React from 'react';
 import { useLanguage } from '../../../context/LanguageContext';
 import { getTranslations } from '../../../constants/translations';
 import { useScrollAnimation } from '../../../hooks/useScrollAnimation';
-import { ExternalLink } from 'lucide-react';
 import styles from './ProductReferences.module.css';
 
 // Import product images
@@ -44,14 +43,24 @@ const productImageMap = {
   'Vaktrommet – Safety in real-time': vaktrommetImage,
 };
 
+const DESCRIPTION_READ_MORE_MIN_CHARS = 120;
+
 export function ProductReferences() {
   const { language } = useLanguage();
   const t = getTranslations(language);
   const [ref] = useScrollAnimation({ threshold: 0.1 });
   const [imageErrors, setImageErrors] = React.useState({});
+  const [expandedById, setExpandedById] = React.useState({});
 
   const handleImageError = (productTitle) => {
     setImageErrors(prev => ({ ...prev, [productTitle]: true }));
+  };
+
+  const toggleExpanded = (productId) => {
+    setExpandedById((prev) => ({
+      ...prev,
+      [productId]: !prev[productId],
+    }));
   };
 
   const products = t.productReferences?.products || [];
@@ -60,7 +69,9 @@ export function ProductReferences() {
     return null;
   }
 
-  // Always apply visible class - section is always visible regardless of scroll animation
+  const readMoreLabel = t.productReferences?.readMore || 'Read more';
+  const readLessLabel = t.productReferences?.readLess || 'Show less';
+
   return (
     <section id="product-references" ref={ref} className={`${styles.productReferencesSection} ${styles.visible}`}>
       <div className={styles.productReferencesContainer}>
@@ -72,36 +83,66 @@ export function ProductReferences() {
           {products.map((product, index) => {
             const imageSrc = productImageMap[product.title] || product.imageUrl;
             const hasError = imageErrors[product.title];
-            // Create a unique ID for the product card using the product ID
             const productCardId = `product-${product.id}`;
-            
+            const description = product.description || '';
+            const canToggle = description.length > DESCRIPTION_READ_MORE_MIN_CHARS;
+            const isExpanded = !!expandedById[product.id];
+
             return (
-            <div key={index} id={productCardId} className={styles.productCard}>
-              <div className={styles.productImageWrapper}>
-                {!hasError && imageSrc ? (
-                  <img 
-                    src={imageSrc} 
-                    alt={product.title}
-                    className={styles.productImage}
-                    onError={() => handleImageError(product.title)}
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className={styles.productImagePlaceholder}>
-                    <span>No Image</span>
-                  </div>
-                )}
-              </div>
-              <div className={styles.productContent}>
-                <h3 className={styles.productTitle}>{product.title}</h3>
-                <p className={styles.productId}>ID: {product.id}</p>
-                <div className={styles.productShortDescription}>
-                  <p className={styles.productTagline}>{product.tagline}</p>
-                  <p className={styles.productFeature}>{product.feature}</p>
+              <div
+                key={index}
+                id={productCardId}
+                className={`${styles.productCard} ${isExpanded ? styles.productCardExpanded : ''}`}
+              >
+                <div className={styles.productImageWrapper}>
+                  {!hasError && imageSrc ? (
+                    <img
+                      src={imageSrc}
+                      alt={product.title}
+                      className={styles.productImage}
+                      onError={() => handleImageError(product.title)}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className={styles.productImagePlaceholder}>
+                      <span>No Image</span>
+                    </div>
+                  )}
                 </div>
-                <p className={styles.productDescription}>{product.description}</p>
+                <div className={styles.productContent}>
+                  <h3 className={styles.productTitle}>{product.title}</h3>
+                  <p className={styles.productId}>ID: {product.id}</p>
+                  <div className={styles.productShortDescription}>
+                    <p className={styles.productTagline}>{product.tagline}</p>
+                    {product.feature ? (
+                      <p className={styles.productFeature}>{product.feature}</p>
+                    ) : null}
+                  </div>
+                  <div className={styles.productBody}>
+                    <p
+                      className={`${styles.productDescription} ${
+                        canToggle && !isExpanded ? styles.productDescriptionClamped : ''
+                      }`}
+                    >
+                      {description}
+                    </p>
+                  </div>
+                  <div
+                    className={`${styles.productCardFooter} ${canToggle ? styles.productCardFooterWithToggle : ''}`}
+                  >
+                    {canToggle ? (
+                      <button
+                        type="button"
+                        className={styles.readMoreButton}
+                        onClick={() => toggleExpanded(product.id)}
+                        aria-expanded={isExpanded}
+                      >
+                        {isExpanded ? readLessLabel : readMoreLabel}
+                      </button>
+                    ) : null}
+                  </div>
+                </div>
               </div>
-            </div>
             );
           })}
         </div>
@@ -109,4 +150,3 @@ export function ProductReferences() {
     </section>
   );
 }
-
