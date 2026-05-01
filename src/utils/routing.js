@@ -8,6 +8,10 @@ export const pageToRoute = {
   'Prosjekt': '/project',
   'project': '/project',
   'Project': '/project',
+  'Velferdsteknologi': '/welfare-technology',
+  'Velferds teknologi': '/welfare-technology',
+  'welfare technology': '/welfare-technology',
+  'Welfare technology': '/welfare-technology',
   'automotive': '/automotive',
   'Automotive': '/automotive',
   'Plast & Mekanikk': '/plastic-mechanics',
@@ -20,6 +24,7 @@ export const pageToRoute = {
 export const routeToPage = {
   '/home': { no: 'Hjem', en: 'Home' },
   '/project': { no: 'Prosjekt', en: 'Project' },
+  '/welfare-technology': { no: 'Velferdsteknologi', en: 'Welfare technology' },
   '/automotive': { no: 'Automotive', en: 'Automotive' },
   '/plastic-mechanics': { no: 'Plast & Mekanikk', en: 'Plastic & Mechanics' },
   '/cable-assembly': { no: 'Kabel konfeksjon', en: 'Cable assembly' },

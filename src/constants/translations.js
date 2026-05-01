@@ -12,7 +12,7 @@ export const translations = {
       bottomMenu: [
         { label: 'Hjem', href: '#hero' },
         { label: 'Prosjekt', href: '#about' },
-        { label: 'Velferds teknologi', externalUrl: 'https://nordicmedtek.no' },
+        { label: 'Velferdsteknologi', href: '#welfare' },
         { label: 'Automotive', href: '#business' },
         { label: 'Plast & Mekanikk', href: '#plastic' },
         { label: 'Kabel konfeksjon', href: '#cable' },
@@ -538,51 +538,117 @@ export const translations = {
     },
     // Welfare Technology Hero
     welfareTechnologyHero: {
-      heading: 'VELFERDSTEKNOLOGI',
-      description: 'Vi utvikler innovative løsninger for helse og velferd som gjør en forskjell i hverdagen. Med fokus på brukervennlighet og pålitelighet leverer vi produkter som kombinerer avansert teknologi med praktisk anvendelighet.',
+      heading: 'Vi leverer løsninger som gir mennesker trygghet, verdighet og bedre livskvalitet',
+      description: 'Teknologi som gjør det mulig for eldre å bo hjemme lenger, samtidig som ressursene brukes smartere.',
+      cardTitle: 'NordicMedTek',
+      cardDescription: 'NordicMedTek er vår produktserie innen velferdsteknologi. Serien omfatter produkter og løsninger som bidrar til trygghet og støtte gjennom hele livsløpet, med fokus på kvalitet og brukervennlighet.',
+      imageAlt: 'Omsorgssituasjon med helsepersonell og pasient',
     },
     // Welfare Technology Solutions
     welfareTechnologySolutions: {
-      title: 'VÅRE LØSNINGER',
-      solutions: [
+      title: 'Vår løsning',
+      intro: 'Vi leverer komplett trygghetsløsning med et bredt utvalg sensorer i hjemmet, toveiskommunikasjon og varsling til mobiltelefon og vaktsentraler.',
+      introSecondary: 'Løsningen vår er modulær. Du kan starte enkelt og bygge ut senere hvis behovet endrer seg.',
+      highlights: [
         {
           icon: 'Heart',
-          title: 'Medisinske Sensorer',
-          description: 'Presise sensorer for overvåking av vitale parametere med fokus på pålitelighet og nøyaktighet.',
+          title: 'Fallsensorer',
+          description: 'Oppdager fall automatisk, også når brukeren ikke rekker å trykke på alarmknappen.',
         },
         {
           icon: 'Wifi',
-          title: 'Trådløs Kommunikasjon',
-          description: 'Sikre og stabile IoT-løsninger som kobler enheter og systemer sammen.',
-        },
-        {
-          icon: 'Activity',
-          title: 'Sanntidsovervåking',
-          description: 'Kontinuerlig monitorering med varslingsfunksjoner for trygghet døgnet rundt.',
+          title: 'Helsesensorer',
+          description: 'Følger med på puls, pust og aktivitet uten at brukeren merker det.',
         },
         {
           icon: 'Shield',
-          title: 'Datasikkerhet',
-          description: 'GDPR-compliant løsninger med kryptering og sikker databehandling.',
-        },
-        {
-          icon: 'Users',
-          title: 'Brukervennlig Design',
-          description: 'Intuitive grensesnitt tilpasset både brukere, pårørende og helsepersonell.',
+          title: 'Sentral oversikt',
+          description: 'Kommunens vaktsentral får sanntidsovervåking og kan prioritere ressurser riktig.',
         },
         {
           icon: 'Smartphone',
-          title: 'App-integrasjon',
-          description: 'Mobile løsninger for enkel tilgang til data og styring hvor som helst.',
+          title: 'Direkte varsling',
+          description: 'Få umiddelbare varsler på mobil eller nettbrett når noe kritisk skjer.',
         },
       ],
-    },
-    // Welfare Technology CTA
-    welfareTechnologyCTA: {
-      title: 'INTERESSERT I VELFERDSTEKNOLOGI?',
-      description: 'Kontakt oss for å lære mer om våre løsninger innen velferdsteknologi og hvordan vi kan hjelpe med ditt neste prosjekt.',
-      buttonText: 'Kontakt oss',
-      seeMoreText: 'Se mer',
+      segments: [
+        {
+          title: 'Privat',
+          description: 'Våre unike sensorer oppdager uregelmessigheter knyttet til trygghet og sikkerhet hos dine eldre som bor hjemme, og varsler deg som pårørende eller helsetjenesten helt automatisk.',
+          cta: 'Løsninger for pårørende',
+        },
+        {
+          title: 'Kommune',
+          description: 'Våre løsninger innen velferdsteknologi øker tryggheten for hjemmeboende brukere, reduserer arbeidspresset på helsepersonell, og effektiviserer driften – alt i én fleksibel og skalerbar plattform.',
+          cta: 'Løsninger for kommuner',
+        },
+        {
+          title: 'Bedrift',
+          description: 'Vi tilbyr våre løsninger til bedriftsmarkedet, enten du er forhandler som ønsker et bredere og pålitelig sortiment, eller du leverandør av systemer for vaktrom og teknisk infrastruktur eller du driver private helse- og omsorgstilbud.',
+          cta: 'Tilbud til bedrifter',
+        },
+      ],
+      reasonsTitle: 'Hvorfor velge oss',
+      reasons: [
+        {
+          title: 'Et av markedets enkleste system å installere',
+          description: 'Kan installeres av alle. Oppe og gå på minutter(?).',
+          links: ['Hvordan installere løsningene'],
+        },
+        {
+          title: 'Effektiv og fleksibel alarmsentral',
+          description: 'egen drift / vaktselskap / alarmsentral med medisinsk oppfølging',
+          links: ['Vår alarmløsning for privat', 'Vår alarmløsning for kommune'],
+        },
+        {
+          title: 'Et av markedets enkleste system å bruke',
+          description: 'Kan installeres av alle. Oppe og gå på minutter(?).',
+          links: ['Hvordan bruke løsningene'],
+        },
+        {
+          title: 'Mål om å være best på pris, med lavest totale kostnad',
+          description: 'Lei sensorer fra kr. 99,- i måneden.',
+          links: ['Se prisliste'],
+        },
+        {
+          title: 'Open og integrerbar løsning',
+          description: 'Støtter standarder som FHIR og HL7. Åpne API-er tilgjengelig for utviklere.',
+          links: ['Våre integrasjoner og API-er'],
+        },
+        {
+          title: 'Vi følger strenge krav til datasikkerhet og personvern',
+          description: 'All data lagres på våre servere i Norge og krypteres både under overføring og lagring. GDPR og DPIA kompatibel behandling av personlige og sensitive data.',
+          links: ['Sikkerhetsinformasjon'],
+        },
+        {
+          title: 'Et av markedets mest komplette løsning',
+          description: 'Et komplett system av sensorer, kommunikasjonsløsninger og varslingssystem.',
+          links: ['Se komplett oversikt'],
+        },
+        {
+          title: 'Utviklet og produsert i Norge',
+          description: 'Utviklet i tett samarbeid med helsetjenesten og brukerne. Lokal produksjon som sikrer kvalitet og følger strenge miljøkrav og etisk arbeidspraksis.',
+          links: ['Om selskapet'],
+        },
+      ],
+      faqTitle: 'Lurer du på noe?',
+      faqCards: [
+        {
+          title: 'Ofte stilte spørsmål',
+          description: 'Finn raske svar på de vanligste spørsmålene.',
+          cta: 'Ofte stilte spørsmål',
+        },
+        {
+          title: 'Hvordan andre bruker løsningene',
+          description: 'Erfaringer.',
+          cta: 'Referanser Erfaringer',
+        },
+        {
+          title: 'Kontakt oss',
+          description: 'Vi er her for å svare på spørsmål og hjelpe deg med å velge rett løsning for dine kjære.',
+          cta: 'Kontakt oss i dag',
+        },
+      ],
     },
     // Plastic Mechanics Hero
     plasticMechanicsHero: {
@@ -853,7 +919,8 @@ export const translations = {
     // Automotive Hero
     automotiveHero: {
       heading: 'NORDICRVM AUTOMOTIVE',
-      description: '',
+      description: 'Smarthjem og styring for bobiler og campingvogner.',
+      imageAlt: 'Kjøretøy i moderne bilhall',
     },
     // Automotive Content
     automotiveContent: {
@@ -1003,7 +1070,7 @@ export const translations = {
       bottomMenu: [
         { label: 'Home', href: '#hero' },
         { label: 'Project', href: '#about' },
-        { label: 'Welfare technology', externalUrl: 'https://nordicmedtek.no' },
+        { label: 'Welfare technology', href: '#welfare' },
         { label: 'Automotive', href: '#business' },
         { label: 'Plastic & Mechanics', href: '#plastic' },
         { label: 'Cable assembly', href: '#cable' },
@@ -1529,51 +1596,117 @@ export const translations = {
     },
     // Welfare Technology Hero
     welfareTechnologyHero: {
-      heading: 'WELFARE TECHNOLOGY',
-      description: 'We develop innovative solutions for health and welfare that make a difference in everyday life. With a focus on user-friendliness and reliability, we deliver products that combine advanced technology with practical applicability.',
+      heading: 'We deliver solutions that provide safety, dignity and better quality of life',
+      description: 'Technology that helps elderly people stay home longer while resources are used more efficiently.',
+      cardTitle: 'NordicMedTek',
+      cardDescription: 'NordicMedTek is our welfare technology product line. It includes products and services that create safety and support throughout everyday life, with a strong focus on quality and usability.',
+      imageAlt: 'Care setting with nurse and patient',
     },
     // Welfare Technology Solutions
     welfareTechnologySolutions: {
-      title: 'OUR SOLUTIONS',
-      solutions: [
+      title: 'Our solution',
+      intro: 'We deliver a complete safety solution with a wide range of in-home sensors, two-way communication and alerting to mobile devices and care centers.',
+      introSecondary: 'Our solution is modular. Start simple and expand later as needs evolve.',
+      highlights: [
         {
           icon: 'Heart',
-          title: 'Medical Sensors',
-          description: 'Precise sensors for monitoring vital parameters with a focus on reliability and accuracy.',
+          title: 'Fall sensors',
+          description: 'Detect falls automatically, even when the user cannot press an alarm button.',
         },
         {
           icon: 'Wifi',
-          title: 'Wireless Communication',
-          description: 'Secure and stable IoT solutions that connect devices and systems together.',
-        },
-        {
-          icon: 'Activity',
-          title: 'Real-time Monitoring',
-          description: 'Continuous monitoring with alert functions for safety around the clock.',
+          title: 'Health sensors',
+          description: 'Track pulse, breathing and activity without disrupting the user.',
         },
         {
           icon: 'Shield',
-          title: 'Data Security',
-          description: 'GDPR-compliant solutions with encryption and secure data processing.',
-        },
-        {
-          icon: 'Users',
-          title: 'User-friendly Design',
-          description: 'Intuitive interfaces adapted for users, relatives, and healthcare personnel.',
+          title: 'Central overview',
+          description: 'Municipal response teams get real-time monitoring and can prioritize resources better.',
         },
         {
           icon: 'Smartphone',
-          title: 'App Integration',
-          description: 'Mobile solutions for easy data access and control anywhere.',
+          title: 'Direct alerts',
+          description: 'Receive immediate alerts on phone or tablet when critical situations occur.',
         },
       ],
-    },
-    // Welfare Technology CTA
-    welfareTechnologyCTA: {
-      title: 'INTERESTED IN WELFARE TECHNOLOGY?',
-      description: 'Contact us to learn more about our welfare technology solutions and how we can help with your next project.',
-      buttonText: 'Contact us',
-      seeMoreText: 'See more',
+      segments: [
+        {
+          title: 'Private',
+          description: 'Our unique sensors detect irregularities related to safety and security for elderly people living at home, and alert family members or healthcare services automatically.',
+          cta: 'Solutions for families',
+        },
+        {
+          title: 'Municipality',
+          description: 'Our welfare technology solutions increase safety for home-dwelling users, reduce pressure on healthcare staff, and streamline operations in one scalable platform.',
+          cta: 'Solutions for municipalities',
+        },
+        {
+          title: 'Business',
+          description: 'We provide solutions for business customers, whether you are a reseller, a systems provider for care operations and infrastructure, or a private healthcare operator.',
+          cta: 'Business offering',
+        },
+      ],
+      reasonsTitle: 'Why choose us',
+      reasons: [
+        {
+          title: 'One of the easiest systems in the market to install',
+          description: 'Can be installed by anyone. Up and running in minutes.',
+          links: ['How to install the solutions'],
+        },
+        {
+          title: 'Efficient and flexible alarm center',
+          description: 'Self-operated / security company / alarm center with medical follow-up',
+          links: ['Our private alarm solution', 'Our municipal alarm solution'],
+        },
+        {
+          title: 'One of the easiest systems to use',
+          description: 'Can be installed by anyone. Up and running in minutes.',
+          links: ['How to use the solutions'],
+        },
+        {
+          title: 'Goal to offer best value with lowest total cost',
+          description: 'Rent sensors from NOK 99 per month.',
+          links: ['See pricing'],
+        },
+        {
+          title: 'Open and integrable solution',
+          description: 'Supports standards like FHIR and HL7. Open APIs available for developers.',
+          links: ['Our integrations and APIs'],
+        },
+        {
+          title: 'Strict requirements for data security and privacy',
+          description: 'All data is stored on our servers in Norway and encrypted in transit and at rest. GDPR and DPIA compliant handling of personal and sensitive data.',
+          links: ['Security information'],
+        },
+        {
+          title: 'One of the market’s most complete solutions',
+          description: 'A complete system of sensors, communication solutions and alerting workflows.',
+          links: ['See complete overview'],
+        },
+        {
+          title: 'Developed and produced in Norway',
+          description: 'Developed in close collaboration with healthcare services and users. Local production ensuring quality, environmental compliance and ethical practices.',
+          links: ['About the company'],
+        },
+      ],
+      faqTitle: 'Do you have questions?',
+      faqCards: [
+        {
+          title: 'Frequently asked questions',
+          description: 'Find quick answers to common questions.',
+          cta: 'Frequently asked questions',
+        },
+        {
+          title: 'How others use the solution',
+          description: 'Experiences.',
+          cta: 'References & experiences',
+        },
+        {
+          title: 'Contact us',
+          description: 'We are here to answer questions and help you choose the right solution.',
+          cta: 'Contact us today',
+        },
+      ],
     },
     // Plastic Mechanics Hero
     plasticMechanicsHero: {
@@ -1844,7 +1977,8 @@ export const translations = {
     // Automotive Hero
     automotiveHero: {
       heading: 'NORDICRVM AUTOMOTIVE',
-      description: '',
+      description: 'Smart home and control systems for motorhomes and caravans.',
+      imageAlt: 'Modern vehicles in a showroom',
     },
     // Automotive Content
     automotiveContent: {
