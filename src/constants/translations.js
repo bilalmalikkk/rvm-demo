@@ -11,11 +11,16 @@ export const translations = {
       ],
       bottomMenu: [
         { label: 'Hjem', href: '#hero' },
-        { label: 'Prosjekt', href: '#about' },
+        {
+          label: 'Prosjekt',
+          href: '#about',
+          subItems: [
+            { label: 'Plast & Mekanikk', href: '#plastic' },
+            { label: 'Kabel konfeksjon', href: '#cable' },
+          ],
+        },
         { label: 'Velferdsteknologi', href: '#welfare' },
         { label: 'Automotive', href: '#business' },
-        { label: 'Plast & Mekanikk', href: '#plastic' },
-        { label: 'Kabel konfeksjon', href: '#cable' },
       ],
       languageToggle: 'ENGLISH',
     },
@@ -1069,11 +1074,16 @@ export const translations = {
       ],
       bottomMenu: [
         { label: 'Home', href: '#hero' },
-        { label: 'Project', href: '#about' },
+        {
+          label: 'Project',
+          href: '#about',
+          subItems: [
+            { label: 'Plastic & Mechanics', href: '#plastic' },
+            { label: 'Cable assembly', href: '#cable' },
+          ],
+        },
         { label: 'Welfare technology', href: '#welfare' },
         { label: 'Automotive', href: '#business' },
-        { label: 'Plastic & Mechanics', href: '#plastic' },
-        { label: 'Cable assembly', href: '#cable' },
       ],
       languageToggle: 'NORSK',
     },

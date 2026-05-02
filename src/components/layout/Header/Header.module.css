@@ -101,6 +101,60 @@
   flex: 0 1 auto;
 }
 
+.primaryNavDropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.primaryNavDropdownMenu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  min-width: 290px;
+  display: none;
+  flex-direction: column;
+  padding: 8px 0;
+  background-color: #f7f7f7;
+  border: 1px solid #e1e3e2;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(16, 24, 24, 0.08);
+  z-index: 150;
+}
+
+.primaryNavDropdownMenu a {
+  padding: 14px 18px;
+  white-space: nowrap;
+  border-bottom: 1px solid #eceeed;
+}
+
+.primaryNavDropdownMenu a:last-child {
+  border-bottom: none;
+}
+
+.dropdownToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dropdownArrow {
+  transition: transform 0.2s ease;
+}
+
+.dropdownArrowOpen {
+  transform: rotate(180deg);
+}
+
+.primaryNavDropdownMenuOpen {
+  display: flex;
+}
+
+.primaryNavDropdown:hover .primaryNavDropdownMenu,
+.primaryNavDropdown:focus-within .primaryNavDropdownMenu {
+  display: flex;
+}
+
 .mobileMenuButton {
   display: none;
   background: none;
@@ -144,6 +198,33 @@
 }
 
 .mobileMenuItem.active {
+  color: #2f6f68;
+}
+
+.mobileNestedMenu {
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f4f2;
+  border-bottom: 1px solid #e6ebe8;
+  border-radius: 0 0 10px 10px;
+}
+
+.mobileDropdownToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobileNestedMenuItem {
+  padding: 11px 36px;
+  color: #4d5b5b;
+  font-size: 14px;
+  text-decoration: none;
+  border-top: 1px solid #e6ebe8;
+}
+
+.mobileNestedMenuItem:hover,
+.mobileNestedMenuItem.active {
   color: #2f6f68;
 }
 

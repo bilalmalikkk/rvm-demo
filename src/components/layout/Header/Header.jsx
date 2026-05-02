@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { useLanguage } from '../../../context/LanguageContext';
 import { getTranslations } from '../../../constants/translations';
 import { pageToRoute } from '../../../utils/routing';
@@ -11,6 +11,8 @@ export function Header() {
   const navigate = useNavigate();
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openDesktopDropdown, setOpenDesktopDropdown] = useState(null);
+  const [openMobileDropdown, setOpenMobileDropdown] = useState(null);
   const t = getTranslations(language);
 
   // Helper function to get route from page name/label
@@ -40,6 +42,7 @@ export function Header() {
 
   const topMenuItems = t.header.topMenu;
   const bottomMenuItems = t.header.bottomMenu;
+  const isProjectSubItem = (item) => (item.subItems || []).some((subItem) => isActiveRoute(subItem.label));
 
   const handleContactClick = (e) => {
     e.preventDefault();
@@ -160,7 +163,48 @@ export function Header() {
                 );
               }
               const route = getRouteFromPage(item.label);
-              const isActive = isActiveRoute(item.label);
+              const isActive = isActiveRoute(item.label) || isProjectSubItem(item);
+              if (item.subItems?.length) {
+                const isOpen = openDesktopDropdown === item.label;
+                return (
+                  <div
+                    key={index}
+                    className={styles.primaryNavDropdown}
+                    onMouseEnter={() => setOpenDesktopDropdown(item.label)}
+                    onMouseLeave={() => setOpenDesktopDropdown(null)}
+                  >
+                    <Link
+                      to={route}
+                      className={`${styles.dropdownToggle} ${isActive ? styles.active : ''}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                      aria-expanded={isOpen}
+                    >
+                      {item.label}
+                      <ChevronDown
+                        size={16}
+                        className={`${styles.dropdownArrow} ${isOpen ? styles.dropdownArrowOpen : ''}`}
+                        aria-hidden="true"
+                      />
+                    </Link>
+                    <div className={`${styles.primaryNavDropdownMenu} ${isOpen ? styles.primaryNavDropdownMenuOpen : ''}`}>
+                      {item.subItems.map((subItem, subIndex) => {
+                        const subRoute = getRouteFromPage(subItem.label);
+                        const isSubActive = isActiveRoute(subItem.label);
+                        return (
+                          <Link
+                            key={`sub-${subIndex}`}
+                            to={subRoute}
+                            className={isSubActive ? styles.active : ''}
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {subItem.label}
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </div>
+                );
+              }
               return (
                 <Link
                   key={index}
@@ -199,7 +243,47 @@ export function Header() {
                 );
               }
               const route = getRouteFromPage(item.label);
-              const isActive = isActiveRoute(item.label);
+              const isActive = isActiveRoute(item.label) || isProjectSubItem(item);
+              if (item.subItems?.length) {
+                const isOpen = openMobileDropdown === item.label;
+                return (
+                  <div key={`bottom-${index}`}>
+                    <button
+                      className={`${styles.mobileMenuItem} ${styles.mobileDropdownToggle} ${isActive ? styles.active : ''}`}
+                      onClick={() => setOpenMobileDropdown(isOpen ? null : item.label)}
+                      aria-expanded={isOpen}
+                    >
+                      {item.label}
+                      <ChevronDown
+                        size={16}
+                        className={`${styles.dropdownArrow} ${isOpen ? styles.dropdownArrowOpen : ''}`}
+                        aria-hidden="true"
+                      />
+                    </button>
+                    {isOpen && (
+                      <div className={styles.mobileNestedMenu}>
+                        {item.subItems.map((subItem, subIndex) => {
+                          const subRoute = getRouteFromPage(subItem.label);
+                          const isSubActive = isActiveRoute(subItem.label);
+                          return (
+                            <Link
+                              key={`mobile-sub-${subIndex}`}
+                              to={subRoute}
+                              className={`${styles.mobileNestedMenuItem} ${isSubActive ? styles.active : ''}`}
+                              onClick={() => {
+                                setMobileMenuOpen(false);
+                                setOpenMobileDropdown(null);
+                              }}
+                            >
+                              {subItem.label}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
               return (
                 <Link
                   key={`bottom-${index}`}
