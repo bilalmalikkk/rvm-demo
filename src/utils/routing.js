@@ -16,6 +16,10 @@ export const pageToRoute = {
   'Automotive': '/automotive',
   'Plast & Mekanikk': '/plastic-mechanics',
   'Plastic & Mechanics': '/plastic-mechanics',
+  'Plast og mekanikk': '/plastic-mechanics',
+  'Plastic and mechanics': '/plastic-mechanics',
+  'Utvikling & Design': '/project',
+  'Development & Design': '/project',
   'Kabel konfeksjon': '/cable-assembly',
   'Cable assembly': '/cable-assembly',
 };
@@ -23,10 +27,10 @@ export const pageToRoute = {
 // Map route hashes to page names
 export const routeToPage = {
   '/home': { no: 'Hjem', en: 'Home' },
-  '/project': { no: 'Prosjekt', en: 'Project' },
+  '/project': { no: 'Utvikling & Design', en: 'Development & Design' },
   '/welfare-technology': { no: 'Velferdsteknologi', en: 'Welfare technology' },
   '/automotive': { no: 'Automotive', en: 'Automotive' },
-  '/plastic-mechanics': { no: 'Plast & Mekanikk', en: 'Plastic & Mechanics' },
+  '/plastic-mechanics': { no: 'Plast og mekanikk', en: 'Plastic and mechanics' },
   '/cable-assembly': { no: 'Kabel konfeksjon', en: 'Cable assembly' },
 };
 

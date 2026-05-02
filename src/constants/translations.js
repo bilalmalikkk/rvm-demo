@@ -15,8 +15,9 @@ export const translations = {
           label: 'Prosjekt',
           href: '#about',
           subItems: [
-            { label: 'Plast & Mekanikk', href: '#plastic' },
-            { label: 'Kabel konfeksjon', href: '#cable' },
+            { label: 'Utvikling & Design', to: '/project' },
+            { label: 'Plast og mekanikk', to: '/plastic-mechanics' },
+            { label: 'Kabel konfeksjon', to: '/cable-assembly' },
           ],
         },
         { label: 'Velferdsteknologi', href: '#welfare' },
@@ -38,7 +39,7 @@ export const translations = {
     },
     // Project Hero
     projectHero: {
-      heading: 'VI GIR LIV TIL DINE IDÉER',
+      heading: 'Vi gir liv til dine idéer',
       description: 'Med 30 års erfaring og hundrevis av fullførte prosjekter leverer vi komplette løsninger inkludert elektronikk, firmware, mekanikk, plastdeler, sensorer og kabelkonfeksjon. Fra idé til ferdig produkt – alt koordinert fra én partner.',
       button1: 'VÅR EKSPERTISE',
       button2: 'KONTAKT OSS',
@@ -1078,8 +1079,9 @@ export const translations = {
           label: 'Project',
           href: '#about',
           subItems: [
-            { label: 'Plastic & Mechanics', href: '#plastic' },
-            { label: 'Cable assembly', href: '#cable' },
+            { label: 'Development & Design', to: '/project' },
+            { label: 'Plastic and mechanics', to: '/plastic-mechanics' },
+            { label: 'Cable assembly', to: '/cable-assembly' },
           ],
         },
         { label: 'Welfare technology', href: '#welfare' },
@@ -1101,7 +1103,7 @@ export const translations = {
     },
     // Project Hero
     projectHero: {
-      heading: 'WE BRING YOUR IDEAS TO LIFE',
+      heading: 'We bring your ideas to life',
       description: 'With 30 years of experience and hundreds of completed projects, we deliver complete solutions including electronics, firmware, mechanics, plastic parts, sensors and cable assembly. From idea to finished product - all coordinated from one partner.',
       button1: 'OUR EXPERTISE',
       button2: 'CONTACT US',

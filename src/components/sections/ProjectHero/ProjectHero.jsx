@@ -9,7 +9,6 @@ export function ProjectHero() {
 
   return (
     <section className={styles.projectHeroSection}>
-      <div className={styles.heroOverlay}></div>
       <div className={styles.heroContent}>
         <h1 className={styles.heroHeading}>
           {t.projectHero.heading}

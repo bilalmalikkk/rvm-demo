@@ -20,6 +20,8 @@ export function Header() {
     return pageToRoute[pageName] || '/home';
   };
 
+  const getSubItemRoute = (subItem) => subItem.to ?? pageToRoute[subItem.label] ?? '/home';
+
   const pathname = location.pathname;
 
   // Helper function to check if current route matches page
@@ -42,7 +44,8 @@ export function Header() {
 
   const topMenuItems = t.header.topMenu;
   const bottomMenuItems = t.header.bottomMenu;
-  const isProjectSubItem = (item) => (item.subItems || []).some((subItem) => isActiveRoute(subItem.label));
+  const isProjectSubItem = (item) =>
+    (item.subItems || []).some((subItem) => pathname === getSubItemRoute(subItem));
 
   const handleContactClick = (e) => {
     e.preventDefault();
@@ -172,12 +175,20 @@ export function Header() {
                     className={styles.primaryNavDropdown}
                     onMouseEnter={() => setOpenDesktopDropdown(item.label)}
                     onMouseLeave={() => setOpenDesktopDropdown(null)}
+                    onFocusCapture={() => setOpenDesktopDropdown(item.label)}
+                    onBlurCapture={(e) => {
+                      const next = e.relatedTarget;
+                      if (!next || !e.currentTarget.contains(next)) {
+                        setOpenDesktopDropdown(null);
+                      }
+                    }}
                   >
-                    <Link
-                      to={route}
+                    <button
+                      type="button"
                       className={`${styles.dropdownToggle} ${isActive ? styles.active : ''}`}
                       onClick={() => setMobileMenuOpen(false)}
                       aria-expanded={isOpen}
+                      aria-haspopup="true"
                     >
                       {item.label}
                       <ChevronDown
@@ -185,11 +196,11 @@ export function Header() {
                         className={`${styles.dropdownArrow} ${isOpen ? styles.dropdownArrowOpen : ''}`}
                         aria-hidden="true"
                       />
-                    </Link>
+                    </button>
                     <div className={`${styles.primaryNavDropdownMenu} ${isOpen ? styles.primaryNavDropdownMenuOpen : ''}`}>
                       {item.subItems.map((subItem, subIndex) => {
-                        const subRoute = getRouteFromPage(subItem.label);
-                        const isSubActive = isActiveRoute(subItem.label);
+                        const subRoute = getSubItemRoute(subItem);
+                        const isSubActive = pathname === subRoute;
                         return (
                           <Link
                             key={`sub-${subIndex}`}
@@ -263,8 +274,8 @@ export function Header() {
                     {isOpen && (
                       <div className={styles.mobileNestedMenu}>
                         {item.subItems.map((subItem, subIndex) => {
-                          const subRoute = getRouteFromPage(subItem.label);
-                          const isSubActive = isActiveRoute(subItem.label);
+                          const subRoute = getSubItemRoute(subItem);
+                          const isSubActive = pathname === subRoute;
                           return (
                             <Link
                               key={`mobile-sub-${subIndex}`}
