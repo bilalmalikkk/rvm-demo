@@ -107,9 +107,23 @@
   align-items: center;
 }
 
+/* Invisible bridge: absolutely positioned menu is out of flow, so the wrapper’s
+   hit box is only the trigger row. Without this, moving through the gap fires
+   mouseleave and the menu closes before the pointer reaches it. */
+.primaryNavDropdown::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: max(100%, 260px);
+  height: 14px;
+  z-index: 149;
+  pointer-events: auto;
+}
+
 .primaryNavDropdownMenu {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 6px);
   left: 0;
   min-width: 290px;
   display: none;
